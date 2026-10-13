@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: >-
+  If you use or adapt this project, cite the repository and the specific
+  revision used. No release DOI is published. Check LICENSE for the scope of
+  the documentation grant and verify permissions for existing source/assets.
+authors:
+  - name: chat-bot project contributors
+type: software
+title: Chat Bot
+repository-code: 'https://github.com/Brajesh31/chat-bot'
+version: '0.0.0'

@@ -1,0 +1,56 @@
+{
+  "description": "Synthetic response matcher examples. These are examples of expected rule categories, not a language understanding benchmark.",
+  "cases": [
+    {
+      "prompt": "hello there",
+      "category": "greeting",
+      "expectedContains": "Hey there"
+    },
+    {
+      "prompt": "hi there",
+      "category": "greeting",
+      "expectedContains": "Hey there"
+    },
+    {
+      "prompt": "high school physics",
+      "category": "fallback",
+      "expectedContains": "Hmm..."
+    },
+    {
+      "prompt": "history of computing",
+      "category": "fallback",
+      "expectedContains": "Hmm..."
+    },
+    {
+      "prompt": "timeline visualization",
+      "category": "fallback",
+      "expectedContains": "Hmm..."
+    },
+    {
+      "prompt": "helpful resources",
+      "category": "fallback",
+      "expectedContains": "Hmm..."
+    },
+    {
+      "prompt": "weatherproof fabric",
+      "category": "fallback",
+      "expectedContains": "Hmm..."
+    },
+    {
+      "prompt": "what is ai",
+      "category": "transparency",
+      "expectedContains": "not an AI model"
+    },
+    {
+      "prompt": "do you know chatgpt",
+      "category": "transparency",
+      "expectedContains": "another AI tool"
+    },
+    {
+      "prompt": "tell me a joke",
+      "category": "random",
+      "randomIndex": 0,
+      "expectedContains": "scarecrow"
+    }
+  ]
+}

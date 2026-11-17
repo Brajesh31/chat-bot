@@ -13,6 +13,7 @@ This handbook documents the current browser-only React chat application. It sepa
 
 ## Product and UX
 - [Response rules](RESPONSE_RULES.md)
+- [Response catalog](RESPONSE_CATALOG.md)
 - [Requirements](PRODUCT_REQUIREMENTS.md)
 - [User stories](USER_STORIES.md)
 - [Accessibility](ACCESSIBILITY.md)

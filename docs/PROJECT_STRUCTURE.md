@@ -17,7 +17,6 @@ chat-bot/
 │   └── testing/
 ├── public/
 │   └── chatbot.svg
-├── scripts/                  # Repository validation utilities (future scripts)
 ├── src/
 │   ├── components/
 │   │   ├── ChatForm.jsx

@@ -1,13 +1,37 @@
 {
   "status": "illustrative-only",
   "loaded_by_application": false,
-  "description": "Future rule catalogue example; current implementation uses conditional branches.",
+  "description": "Example metadata for a possible future response-rule catalogue. The current runtime uses ordered conditional branches in src/components/ChatbotResponse.js.",
+  "schema_version": 1,
   "rule": {
     "id": "greeting-hello",
+    "category": "greeting",
     "phrases": [
       "hello"
     ],
+    "match_mode": "case-insensitive",
+    "boundary": "standalone-word",
+    "response_type": "fixed_text",
     "response": "Friendly greeting",
-    "priority": 100
-  }
+    "priority": 100,
+    "enabled": true,
+    "examples": {
+      "positive": [
+        "hello",
+        "Hello there"
+      ],
+      "negative": [
+        "high school physics"
+      ]
+    },
+    "notes": "Illustrative contract only. Priority is descriptive and does not control the existing if/else-if branch order."
+  },
+  "future_fields_require_review": [
+    "locale",
+    "fallback_policy",
+    "random_response_pool",
+    "safety_review",
+    "owner",
+    "deprecation_status"
+  ]
 }

@@ -1,0 +1,59 @@
+name: ♿ Accessibility report
+description: Report a keyboard, screen-reader, visual, motion, or reflow barrier.
+title: "[Accessibility]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share only information needed to reproduce the issue. Do not include private chat transcripts, credentials, or personal data.
+  - type: textarea
+    id: barrier
+    attributes:
+      label: What barrier did you encounter?
+      description: Describe the task that could not be completed.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Use synthetic prompts and numbered steps.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+    validations:
+      required: true
+  - type: input
+    id: assistive-tech
+    attributes:
+      label: Assistive technology and version, if applicable
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Keyboard navigation
+        - Screen reader announcement
+        - Focus visibility or order
+        - Contrast or text readability
+        - Zoom or responsive reflow
+        - Motion or animation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and observed behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed credentials, personal information, and private conversation content.
+          required: true

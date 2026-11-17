@@ -48,7 +48,7 @@ test("package.json and package-lock.json root dependencies stay aligned", () => 
   assert.deepEqual(lock.packages[""].devDependencies, packageJson.devDependencies);
 });
 
-test("all local Markdown links resolve to tracked repository files", () => {
+test("all local Markdown links resolve to repository files", () => {
   const broken = [];
 
   for (const sourceFile of markdownFiles) {
@@ -71,19 +71,20 @@ test("all local Markdown links resolve to tracked repository files", () => {
   assert.deepEqual(broken, []);
 });
 
-test("the production HTML references the branded favicon", () => {
+test("production HTML references the branded favicon", () => {
   const html = readFileSync(path.join(root, "index.html"), "utf8");
   assert.match(html, /href="\/chatbot\.svg"/);
   assert.ok(existsSync(path.join(root, "public", "chatbot.svg")));
   assert.doesNotMatch(html, /vite\.svg/i);
 });
 
-test("documentation SVG assets have accessible titles and descriptions", () => {
-  const assets = [
-    "docs/assets/chatbot-overview.svg",
-    "docs/assets/response-rules-flow.svg",
-    "docs/assets/chat-ui-preview.svg",
-  ];
+test("all documentation SVG assets have accessible titles and descriptions", () => {
+  const assetsDirectory = path.join(root, "docs", "assets");
+  const assets = readdirSync(assetsDirectory)
+    .filter((name) => name.endsWith(".svg"))
+    .map((name) => path.join("docs", "assets", name));
+
+  assert.ok(assets.length >= 5, "expected the documented visual asset set");
 
   for (const relativePath of assets) {
     const svg = readFileSync(path.join(root, relativePath), "utf8");
@@ -92,6 +93,18 @@ test("documentation SVG assets have accessible titles and descriptions", () => {
     assert.match(svg, /<desc\b/);
     assert.match(svg, /<\/svg>/);
   }
+});
+
+test("the app stylesheet has base layout rules", () => {
+  const stylesheet = readFileSync(path.join(root, "src", "App.css"), "utf8");
+  assert.match(stylesheet, /\.container/);
+  assert.match(stylesheet, /\.chatbot-popup/);
+});
+
+test("the browser verification guide distinguishes manual checks from automation", () => {
+  const guide = readFileSync(path.join(root, "docs", "BROWSER_VERIFICATION.md"), "utf8");
+  assert.match(guide, /Manual Browser Verification/i);
+  assert.match(guide, /not run/i);
 });
 
 test("the test handbook describes the Node.js built-in test runner", () => {

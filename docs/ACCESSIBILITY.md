@@ -1,13 +1,29 @@
-# ♿ Accessibility Guide
+# ♿ Accessibility Guidance
 
-Review semantic form controls, accessible names, visible focus, role identification beyond color, contrast, readable text, polite message announcements, narrow viewport reflow, 200% zoom, and reduced-motion support.
+## Current implementation signals
 
-## Manual review
-- Navigate with Tab and Shift+Tab.
-- Submit using Enter.
-- Verify focus order and indicators.
-- Inspect new-message announcements with assistive technology.
-- Test zoom and mobile widths.
-- Ensure hover is not essential.
+The chat interface includes labelled controls, an explicitly named chat region, a polite live message log, keyboard-operable form controls, visible focus styling, responsive layout rules, and reduced-motion CSS. These are implementation measures, not proof of conformance.
 
-This checklist is not a WCAG conformance claim. Record tested browser and assistive technology for a formal audit.
+## Required manual review
+
+- Use the entire interaction without a mouse.
+- Verify logical focus order and visible focus.
+- Submit with Enter and activate each button with the keyboard.
+- Confirm the live log announces new messages without repeatedly reading the full history.
+- Confirm clear and minimize/expand buttons expose meaningful names and expanded state.
+- Test 200% browser zoom and narrow viewports.
+- Check contrast with a measurement tool.
+- Test browser reduced-motion preference.
+- Use at least one screen reader/browser combination and record versions.
+
+## Known limitations
+
+There is no automated browser accessibility test or full WCAG audit in the current suite. The use of an aria-live log, visual contrast, focus order, and icon fonts should be validated in real browsers and assistive technologies.
+
+## Contribution expectations
+
+Any new control requires a programmatic name, keyboard operation, visible focus, and a state announcement where needed. Avoid using color alone to convey status. Keep motion optional and respect reduced-motion preferences.
+
+## Reporting
+
+Use the accessibility issue form or template. Include the browser, assistive technology, steps, expected result, and sanitized evidence. Do not claim WCAG conformance without a documented assessment against the applicable criteria.

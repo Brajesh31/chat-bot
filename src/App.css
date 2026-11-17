@@ -1,0 +1,8 @@
+.container {
+  width: min(100%, 460px);
+  padding: 16px;
+}
+
+.chatbot-popup {
+  width: min(420px, 100%);
+}

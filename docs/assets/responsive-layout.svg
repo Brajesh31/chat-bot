@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">ChatBuddy responsive layout concept</title>
+  <desc id="desc">An illustrative desktop browser panel is shown beside a narrow mobile panel, highlighting the centered desktop card and full-width mobile layout.</desc>
+  <rect width="1200" height="560" rx="28" fill="#f4f0ff"/>
+  <text x="54" y="60" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="700" fill="#2d2250">Responsive layout concept</text>
+  <g font-family="Inter,Arial,sans-serif">
+    <g transform="translate(60 104)">
+      <rect width="700" height="380" rx="22" fill="#fff" stroke="#bfb0e8" stroke-width="3"/>
+      <rect width="700" height="42" rx="22" fill="#e6e0f4"/>
+      <path d="M0 22h700v20H0z" fill="#e6e0f4"/>
+      <circle cx="24" cy="21" r="6" fill="#a898cf"/>
+      <circle cx="46" cy="21" r="6" fill="#a898cf"/>
+      <circle cx="68" cy="21" r="6" fill="#a898cf"/>
+      <rect x="220" y="64" width="260" height="290" rx="16" fill="#faf9ff" stroke="#c9bde7" stroke-width="2"/>
+      <rect x="220" y="64" width="260" height="48" rx="16" fill="#6d4fc2"/>
+      <path d="M220 94h260v18H220z" fill="#6d4fc2"/>
+      <text x="242" y="94" font-size="17" font-weight="700" fill="#fff">ChatBuddy</text>
+      <rect x="240" y="132" width="160" height="40" rx="10" fill="#e5d9ff"/>
+      <rect x="310" y="188" width="150" height="40" rx="10" fill="#6d4fc2"/>
+      <rect x="240" y="302" width="220" height="32" rx="16" fill="#fff" stroke="#c9c3da"/>
+      <text x="252" y="324" font-size="11" fill="#827b95">Message...</text>
+      <text x="350" y="418" font-size="19" font-weight="700" fill="#30244e" text-anchor="middle">Desktop: centered panel</text>
+      <text x="350" y="445" font-size="13" fill="#665d7d" text-anchor="middle">Maximum width with surrounding page space</text>
+    </g>
+    <g transform="translate(830 104)">
+      <rect width="260" height="380" rx="32" fill="#fff" stroke="#bfb0e8" stroke-width="4"/>
+      <rect x="94" y="10" width="72" height="8" rx="4" fill="#bfb0e8"/>
+      <rect x="0" y="40" width="260" height="52" fill="#6d4fc2"/>
+      <text x="20" y="73" font-size="17" font-weight="700" fill="#fff">ChatBuddy</text>
+      <rect x="16" y="116" width="170" height="42" rx="10" fill="#e5d9ff"/>
+      <rect x="74" y="174" width="170" height="42" rx="10" fill="#6d4fc2"/>
+      <rect x="16" y="318" width="228" height="34" rx="17" fill="#fff" stroke="#c9c3da"/>
+      <text x="30" y="340" font-size="11" fill="#827b95">Message...</text>
+      <text x="130" y="418" font-size="19" font-weight="700" fill="#30244e" text-anchor="middle">Mobile: full width</text>
+      <text x="130" y="445" font-size="13" fill="#665d7d" text-anchor="middle">Panel adapts to viewport height</text>
+    </g>
+  </g>
+  <text x="54" y="530" font-family="Inter,Arial,sans-serif" font-size="14" fill="#665d7d">Concept illustration of CSS breakpoints. Verify actual behavior in a browser at supported viewport sizes.</text>
+</svg>

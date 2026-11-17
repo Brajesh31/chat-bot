@@ -1,7 +1,33 @@
 # 💾 Backup and Recovery
 
-There is no server database or persisted transcript. Git stores source; static artifacts can be rebuilt from a commit and npm lockfile.
+## Current data model
 
-Recovery: select known-good commit, clean checkout, `npm ci`, lint/tests/build, deploy static artifact, verify main chat flow and assets.
+The current app does not store conversations in an application database or server-side file store. Chat history exists in browser React memory and is not a durable record. A page refresh or remount discards the in-memory conversation.
 
-If persistence is introduced, require tested backups, restore drills, retention, encryption, access control, and deletion.
+The repository itself is maintained in GitHub. Source history and release artifacts are separate from any end-user conversation data.
+
+## What should be recoverable
+
+- Source code and documentation from Git history.
+- Dependency installation from the committed package lockfile.
+- A static build recreated from a known commit and supported Node/npm environment.
+- Hosting configuration, where it is documented and backed up by the host owner.
+
+## Recovery procedure
+
+1. Identify the lost or corrupted resource.
+2. Record the last known-good commit or artifact.
+3. Confirm that the repository and deployment access are available.
+4. Recreate dependencies using npm ci.
+5. Run lint, tests, audit, and build.
+6. Restore the static artifact or redeploy the known-good commit using the host's procedure.
+7. Complete the post-deployment verification checklist.
+8. Record the recovery time, evidence, and residual risks.
+
+## If persistence is added
+
+Create a separate backup design covering data classification, backup frequency, encryption, key ownership, access controls, retention, deletion, restore objectives, backup isolation, and restore-test cadence. Define RPO and RTO only after they are approved and measurable.
+
+## Recovery record
+
+Incident, resource, source commit, artifact, operator, start/end time, verification, data impact, and follow-up:

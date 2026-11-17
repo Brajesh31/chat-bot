@@ -1,0 +1,29 @@
+name: 📚 Documentation improvement
+description: Report missing, unclear, stale, or incorrect documentation.
+title: "[Docs]: "
+body:
+  - type: textarea
+    id: location
+    attributes:
+      label: Documentation location
+      description: Link the page or give its repository path.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is unclear or incorrect?
+      description: Explain the impact and quote only the minimum necessary text.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested correction
+      description: Include evidence or the actual implementation path where possible.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy review
+      options:
+        - label: I removed private information from examples and screenshots.

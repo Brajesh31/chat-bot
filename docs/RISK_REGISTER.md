@@ -1,12 +1,22 @@
 # ⚠️ Risk Register
 
-| ID | Risk | Likelihood | Impact | Mitigation |
-|---|---|---|---|---|
-| R-01 | Canned replies mistaken for AI | Medium | Medium | Disclose limits |
-| R-02 | Substring false positives | High | Low | Negative tests and precedence review |
-| R-03 | Future key exposed in Vite bundle | Medium | High | Server-side secrets |
-| R-04 | Unbounded in-memory history | Low | Low | Bound/virtualize if justified |
-| R-05 | External font request | Medium | Low | Document or self-host |
-| R-06 | CI workflow drift | Medium | Medium | Keep commands aligned |
+The entries below are qualitative starting points based on the current implementation. Reassess likelihood and impact after material code, dependency, or architecture changes.
 
-Ratings are qualitative and should be revisited when architecture changes.
+| ID | Risk | Likelihood | Impact | Current mitigation / action |
+|---|---|---|---|---|
+| R-01 | Visitors mistake canned replies for AI | Medium | Medium | Visible local-demo disclosure and transparent response copy |
+| R-02 | Substring matching causes false positives | Medium | Low | Word boundaries for selected intents and negative regression tests |
+| R-03 | Future provider secret exposed in Vite bundle | Medium if integration is added | High | Server-side credentials only; client VITE_ variables are public |
+| R-04 | In-memory message list grows in a long session | Low | Low | Measure before bounding or virtualizing |
+| R-05 | External font request discloses browser request metadata | Medium | Low | Document font host and consider self-hosting after license review |
+| R-06 | CI workflow drifts from package scripts | Medium | Medium | Keep docs and commands aligned; verify the pipeline |
+| R-07 | UI accessibility issue is missed by Node-only tests | Medium | Medium | Manual browser and assistive-technology verification |
+| R-08 | Static build succeeds but deployed site is misconfigured | Medium | Medium | Post-deployment verification and rollback record |
+
+## Risk ownership
+
+Assign an owner, review date, and treatment to any risk accepted for release. A risk rating without evidence is a working assumption, not a measured probability.
+
+## Escalation
+
+Credential exposure, malicious source changes, or confirmed sensitive-data disclosure should follow SECURITY.md and incident response. Do not disclose exploit details in a public issue before coordination.

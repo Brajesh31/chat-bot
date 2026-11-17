@@ -1,9 +1,30 @@
-# 🧑‍🏫 Learning Path
+# 🧑‍🏫 Contributor Learning Path
 
-**Beginner:** trace HTML to `main.jsx`; identify state in `App.jsx`; follow submission; inspect message rendering.
+This is a React UI and local rule-matching project. It is not a model training, RAG, or LLM operations example.
 
-**Intermediate:** map rule precedence; add a response branch; create positive and negative tests; run lint and build.
+## Beginner: understand the app
 
-**Advanced:** refactor rules carefully, improve accessibility, design a server-side integration boundary. Consent, privacy, limits, and error behavior come before remote inference.
+1. Follow the HTML entry into src/main.jsx.
+2. Identify component state and control handling in src/App.jsx.
+3. Trace the form submission in src/components/ChatForm.jsx.
+4. Inspect message rendering and the local response helper.
+5. Run the development server and try synthetic prompts.
 
-This is a React UI learning project, not an LLM training or RAG example.
+**Outcome:** Explain how a visitor message becomes a pair of rendered messages.
+
+## Intermediate: modify behavior safely
+
+1. Map the order of conditions in ChatbotResponse.js.
+2. Identify word-boundary and substring matching differences.
+3. Add one narrow response branch.
+4. Add positive, negative, ambiguous, and precedence tests.
+5. Control Math.random for deterministic tests.
+6. Run lint, tests, audit, and production build.
+
+**Outcome:** Make a small behavior change without introducing a regression.
+
+## Advanced: improve the product boundary
+
+Study accessibility, data minimization, threat modeling, build and deployment. Propose an architecture change before adding a remote provider or storage layer. Consent, privacy, server-side secrets, rate limits, cost controls, and failure behavior come before remote inference.
+
+**Outcome:** Produce an evidence-backed design and decision record, not just an SDK integration.

@@ -1,26 +1,48 @@
 # 🧭 Support Incident Triage
 
 ## Incoming report
-- Issue:
+
+- Issue / case:
 - Reporter context:
-- First observed:
-- Commit/version:
-- Affected browser:
+- First observed (UTC):
+- Commit / version:
+- Browser and version:
+- Operating system / viewport:
+- Triage owner:
 
-## Triage
-- Reproducible:
-- Scope:
-- Severity:
-- User impact:
+## Reproduction
 
-## Diagnostic evidence
-Sanitized error output, reproduction path, and relevant screenshots.
+- Reproducible: yes / no / intermittent / unknown
+- Exact steps:
+- Synthetic prompt or UI state:
+- Expected behavior:
+- Actual behavior:
+- Sanitized console output:
 
-## Containment / workaround
-Only document steps that have been verified.
+## Scope and severity
+
+- Affected workflow:
+- Number or category of users affected, if known:
+- Availability impact:
+- Privacy / security impact:
+- Accessibility impact:
+- Severity and rationale:
+- Workaround:
+
+## Containment
+
+Record only steps that have been verified. Include owner, start time, result, and risks. If a release rollback is required, link the rollback record.
 
 ## Ownership and follow-up
-Assigned maintainer, issue reference, next checkpoint, and user response.
+
+| Action | Owner | Due date | Issue / evidence |
+|---|---|---|---|
+| Reproduction | | | |
+| Mitigation | | | |
+| Fix | | | |
+| Regression coverage | | | |
+| User communication | | | |
 
 ## Privacy check
-Confirm no credentials or private transcripts are stored in the public issue.
+
+Confirm that public issue content contains no credentials, private transcripts, access tokens, or unnecessary personal data. Remove or restrict sensitive attachments through the repository's approved process.

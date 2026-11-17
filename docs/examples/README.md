@@ -1,7 +1,6 @@
 # 🧪 Examples
 
 All examples are synthetic.
-- [Sample prompts](sample-prompts.md): prompts for existing response categories.
+- [Sample prompts](sample-prompts.md): prompt examples and near-match cases.
 - [Response contract](response-contract.json): future illustrative metadata, not loaded by runtime.
-
-- [Prompt regression fixtures](prompt-regression-cases.json): synthetic positive and near-match prompts for manual review.
+- [Prompt regression fixtures](prompt-regression-cases.json): executable prompt/expected-response fixtures used by the Node.js tests.

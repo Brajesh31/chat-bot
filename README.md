@@ -5,6 +5,8 @@ A lightweight browser-only chat interface built with **React 18** and **Vite 6**
 > [!IMPORTANT]
 > **This is not an LLM-powered chatbot.** It does not call a model API, backend, database, account system, or remote chatbot service. Replies are selected in the browser from hand-written phrase rules in `src/components/ChatbotResponse.js`.
 
+<p align="center"><img src="docs/assets/chat-ui-preview.svg" alt="Illustrative ChatBuddy interface preview with welcome message, visitor prompt, scripted reply and message input" width="85%"></p>
+
 <p align="center"><img src="docs/assets/chatbot-overview.svg" alt="Browser chat flow from prompt input to local phrase matching, state and rendered messages" width="100%"></p>
 
 <p align="center">
@@ -167,6 +169,7 @@ Roadmap items are proposals, not current functionality. See [ROADMAP.md](ROADMAP
 | [User guide](docs/USER_GUIDE.md) | Current UI behavior |
 | [Architecture](docs/architecture.md) | Component relationships |
 | [Response rules](docs/RESPONSE_RULES.md) | Local scripted behavior |
+| [Response catalog](docs/RESPONSE_CATALOG.md) | Trigger categories and current reply behavior |
 | [Development](docs/development.md) | Contributor workflow |
 | [Testing strategy](docs/testing/TESTING_STRATEGY.md) | Automated and manual test scope |
 | [Deployment](docs/deployment.md) | Static hosting |

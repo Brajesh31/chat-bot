@@ -1,4 +1,5 @@
 import test from "node:test";
+import { readFileSync } from "node:fs";
 import assert from "node:assert/strict";
 import getChatbotResponse from "../src/components/ChatbotResponse.js";
 
@@ -79,6 +80,20 @@ test("explains that ChatGPT is a separate AI tool", () => {
 test("returns a friendly goodbye", () => {
   assert.match(getChatbotResponse("bye"), /Goodbye/);
 });
+
+const regressionFixtures = JSON.parse(
+  readFileSync(new URL("../docs/examples/prompt-regression-cases.json", import.meta.url), "utf8"),
+).cases;
+
+for (const fixture of regressionFixtures) {
+  test(`regression fixture: ${fixture.prompt}`, () => {
+    const run = () => getChatbotResponse(fixture.prompt);
+    const response = fixture.randomIndex === undefined
+      ? run()
+      : withRandomValue(fixture.randomIndex, run);
+    assert.ok(response.includes(fixture.expectedContains));
+  });
+}
 
 // Coverage for every remaining deterministic response branch.
 const deterministicCases = [

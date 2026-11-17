@@ -7,5 +7,7 @@
 - [Empty input and local response flow](ERROR_FLOW.md)
 - [CI verification pipeline](TEST_PIPELINE.md)
 - [Proposed future AI boundary](FUTURE_AI_BOUNDARY.md)
+- [Error and empty input](ERROR_FLOW.md)
+- [CI test pipeline](TEST_PIPELINE.md)
 
 Current-state diagrams intentionally omit a backend and database.

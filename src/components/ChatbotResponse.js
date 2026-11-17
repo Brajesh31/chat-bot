@@ -2,7 +2,7 @@ const getChatbotResponse = (userMessage) => {
     const lowerCaseMessage = userMessage.toLowerCase();
   
     // Greeting Responses
-    if (lowerCaseMessage.includes("hello") || /\bhi\b/.test(lowerCaseMessage)) {
+    if (/\b(?:hello|hi)\b/.test(lowerCaseMessage)) {
       return "Hey there! 😊 How can I brighten your day?";
     } else if (lowerCaseMessage.includes("good morning")) {
       return "Good morning! ☀️ I hope you have an amazing day!";

@@ -6,6 +6,7 @@ const ChatMessage = ({ chat }) => {
   return (
     <div
       className={`message ${isBotMessage ? "bot" : "user"}-message`}
+      role="article"
       aria-label={isBotMessage ? "Chatbot message" : "Your message"}
     >
       {isBotMessage && <ChatbotIcon />}

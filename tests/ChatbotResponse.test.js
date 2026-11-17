@@ -20,6 +20,11 @@ test("matches greeting phrases without case sensitivity", () => {
   );
 });
 
+test("does not treat hi inside high as a greeting", () => {
+  const response = withRandomValue(0, () => getChatbotResponse("high school physics"));
+  assert.equal(response, "Hmm... I'm not sure about that! 🤔");
+});
+
 test("returns the configured morning greeting", () => {
   assert.match(getChatbotResponse("good morning"), /Good morning/);
 });

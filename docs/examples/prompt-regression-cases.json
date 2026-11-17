@@ -14,27 +14,32 @@
     {
       "prompt": "high school physics",
       "category": "fallback",
-      "expectedContains": "Hmm..."
+      "expectedContains": "Hmm...",
+      "randomIndex": 0
     },
     {
       "prompt": "history of computing",
       "category": "fallback",
-      "expectedContains": "Hmm..."
+      "expectedContains": "Hmm...",
+      "randomIndex": 0
     },
     {
       "prompt": "timeline visualization",
       "category": "fallback",
-      "expectedContains": "Hmm..."
+      "expectedContains": "Hmm...",
+      "randomIndex": 0
     },
     {
       "prompt": "helpful resources",
       "category": "fallback",
-      "expectedContains": "Hmm..."
+      "expectedContains": "Hmm...",
+      "randomIndex": 0
     },
     {
       "prompt": "weatherproof fabric",
       "category": "fallback",
-      "expectedContains": "Hmm..."
+      "expectedContains": "Hmm...",
+      "randomIndex": 0
     },
     {
       "prompt": "what is ai",

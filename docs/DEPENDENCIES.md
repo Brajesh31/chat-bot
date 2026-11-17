@@ -20,7 +20,7 @@ The test runner is built into supported Node.js releases. Vitest, jsdom, and Tes
 7. Do not use `npm audit fix --force` without reviewing breaking changes and rerunning the full quality suite.
 
 ## Security audit status
-On 2026-11-17, a non-breaking `npm audit fix` refreshed the committed lockfile. The resulting audit reported **0 known vulnerabilities**. The dependency remediation was validated with ESLint, all 11 tests, and the Vite production build. This is a point-in-time audit result, not a guarantee that future advisories cannot appear.
+On 2026-11-17, a non-breaking `npm audit fix` refreshed the committed lockfile. The resulting audit reported **0 known vulnerabilities**. The updated dependency tree was validated with ESLint, the full Node.js test suite, the high-severity audit gate, and the Vite production build. This is a point-in-time audit result, not a guarantee that future advisories cannot appear.
 
 ## Upgrade workflow
 ```bash
@@ -30,6 +30,7 @@ npm update
 npm ci
 npm run lint
 npm test
+npm audit --audit-level=high
 npm run build
 ```
 

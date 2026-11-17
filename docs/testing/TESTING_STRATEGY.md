@@ -3,22 +3,25 @@
 The repository uses Node.js' built-in test runner to avoid adding a separate test framework dependency to this small frontend.
 
 ## Current automated coverage
-- Configured deterministic responses for every existing rule category.
-- Case-insensitive greetings and standalone word-boundary matching.
-- Regression cases for false positives such as `hi` in `high`, `story` in `history`, `time` in `timeline`, and `help` in `helpful`.
+- Configured deterministic responses across the current response categories.
+- Case-insensitive greeting behavior and standalone word-boundary matching.
+- Regression cases for false positives such as `hi` in `high`, `story` in `history`, `time` in `timeline`, `help` in `helpful`, and `weather` in `weatherproof`.
 - Deterministic joke, fact, and fallback selection through controlled randomness.
-- Local time/date output shape.
-- Product intent order when a message includes multiple rules.
-- Package and lockfile consistency.
-- Relative Markdown link targets, branded favicon references, and SVG metadata integrity.
+- Browser-local time/date output shape.
+- Product-intent precedence when one prompt includes multiple rules.
+- Explicit disclosure that this project is a scripted demo, not a generative AI model.
+- Executable synthetic prompt regression fixtures from `docs/examples/prompt-regression-cases.json`.
+- Package and lockfile alignment.
+- Local Markdown link resolution across repository-owned Markdown files.
+- Branded favicon and accessible SVG title/description metadata.
 
 ## Not yet covered automatically
-- React component rendering and full keyboard interaction.
+- React component rendering and complete keyboard interaction.
 - Real browser layout, responsive behavior, and screen-reader behavior.
-- Complete end-to-end browser workflow.
+- Full end-to-end browser workflow.
 - Human-reviewed accessibility conformance.
 
-These need browser-based tests or manual review. Do not describe the current suite as browser E2E or a complete accessibility audit.
+These still require browser-based tests or manual review. Do not describe the current suite as browser E2E or a complete accessibility audit.
 
 ## Commands
 ```bash

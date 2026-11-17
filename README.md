@@ -28,7 +28,7 @@ A lightweight browser-only chat interface built with **React 18** and **Vite 6**
 - ♿ Semantic form controls, labelled actions, and a live message region.
 - 📱 Responsive layout and reduced-motion support.
 - ⚡ Fast local development and static Vite production build.
-- 🧪 Automated tests using Node's built-in test runner.
+- 🧪 Automated response and repository-integrity tests using Node's built-in test runner.
 
 ## 🧭 Capability status
 
@@ -139,7 +139,7 @@ npm audit --audit-level=high
 npm run build
 ```
 
-GitHub Actions runs these checks on Node.js 20 and 22. The tests cover local response behavior. Browser layout, complete React interaction, accessibility and live deployment still require additional browser-level or manual verification.
+GitHub Actions runs these checks on Node.js 20 and 22. The tests cover local response behavior, prompt regressions, and repository integrity. Browser layout, complete React interaction, accessibility, and live deployment still require additional browser-level or manual verification.
 
 ## 🔐 Security and privacy
 

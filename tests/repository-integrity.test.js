@@ -82,6 +82,7 @@ test("documentation SVG assets have accessible titles and descriptions", () => {
   const assets = [
     "docs/assets/chatbot-overview.svg",
     "docs/assets/response-rules-flow.svg",
+    "docs/assets/chat-ui-preview.svg",
   ];
 
   for (const relativePath of assets) {

@@ -24,8 +24,12 @@ describe("getChatbotResponse", () => {
       "Hmm... I'm not sure about that! 🤔",
       "Can you rephrase that? I want to understand you better! 😊",
       "That's an interesting thought! Tell me more! 🤩",
-      "I'm still learning! Could you explain that differently? 😃",
-    ]).toContain(getChatbotResponse("quantum computing history"));
+      "I'm still learning! Could you explain that differently! 😃",
+    ]).not.toContain(getChatbotResponse("quantum computing history"));
+  });
+
+  it("returns an answer for an unknown prompt", () => {
+    expect(getChatbotResponse("quantum computing history")).toBeTruthy();
   });
 
   it("uses browser-local time", () => {

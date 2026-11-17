@@ -7,12 +7,12 @@ All items below are proposals, not implemented capabilities.
 - [ ] Add polite announcements for new messages.
 - [ ] Improve deterministic matching and ambiguous phrase coverage.
 - [ ] Review external font usage.
-- [ ] Add browser-level tests for the chat workflow.
+- [ ] Add browser-level tests for chat workflow.
 
 ## Medium term
 - [ ] Consider opt-in local history with reset/delete controls.
 - [ ] Design privacy requirements for remote AI integration.
-- [ ] Define server auth, validation, rate limits, abuse and provider-error behavior before implementation.
+- [ ] Define server authentication, validation, rate limits, abuse and provider-error handling before implementation.
 
 ## Long term
 - [ ] Add provider-agnostic server integration after threat-model review.
@@ -20,6 +20,6 @@ All items below are proposals, not implemented capabilities.
 - [ ] Add privacy-conscious deployment monitoring.
 
 ## Non-goals until explicitly approved
-- Exposing model-provider credentials in browser code.
+- Exposing provider credentials in browser code.
 - Describing canned replies as generative AI.
 - Persisting personal conversations without notice and deletion controls.

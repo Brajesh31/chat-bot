@@ -1,0 +1,13 @@
+{
+  "status": "illustrative-only",
+  "loaded_by_application": false,
+  "description": "Future rule catalogue example; current implementation uses conditionals.",
+  "rule": {
+    "id": "greeting-hello",
+    "phrases": [
+      "hello"
+    ],
+    "response": "Friendly greeting",
+    "priority": 100
+  }
+}

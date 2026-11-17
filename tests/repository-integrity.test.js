@@ -9,8 +9,11 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readJson = (relativePath) =>
   JSON.parse(readFileSync(path.join(root, relativePath), "utf8"));
 
+const ignoredDirectories = new Set([".git", "node_modules", "dist", "coverage"]);
+
 const walk = (directory) =>
   readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    if (entry.isDirectory() && ignoredDirectories.has(entry.name)) return [];
     const fullPath = path.join(directory, entry.name);
     return entry.isDirectory() ? walk(fullPath) : [fullPath];
   });

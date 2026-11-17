@@ -1,25 +1,25 @@
 # Roadmap 🧭
 
-Items below are proposals, not implemented capabilities.
+All items below are proposals, not implemented capabilities.
 
 ## Near term
 - [ ] Improve input labels and keyboard focus.
 - [ ] Add polite announcements for new messages.
-- [ ] Improve deterministic rule matching and ambiguous-phrase tests.
+- [ ] Improve deterministic matching and ambiguous phrase coverage.
 - [ ] Review external font usage.
-- [ ] Add browser-level coverage for the main flow.
+- [ ] Add browser-level tests for the chat workflow.
 
 ## Medium term
 - [ ] Consider opt-in local history with reset/delete controls.
 - [ ] Design privacy requirements for remote AI integration.
-- [ ] Define server authentication, validation, rate limits, abuse and provider-error handling before implementation.
+- [ ] Define server auth, validation, rate limits, abuse and provider-error behavior before implementation.
 
 ## Long term
 - [ ] Add provider-agnostic server integration after threat-model review.
 - [ ] Add export and retention controls if persistence is introduced.
-- [ ] Add privacy-preserving deployment monitoring.
+- [ ] Add privacy-conscious deployment monitoring.
 
 ## Non-goals until explicitly approved
-- Exposing provider credentials in browser code.
+- Exposing model-provider credentials in browser code.
 - Describing canned replies as generative AI.
 - Persisting personal conversations without notice and deletion controls.

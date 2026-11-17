@@ -3,7 +3,7 @@
 ## Current implementation
 The helper at `src/components/ChatbotResponse.js` receives a string, normalizes it to lowercase, then evaluates ordered conditional branches. The first branch that matches supplies the response. Joke, fact, and unknown-input branches choose a response randomly.
 
-The greeting branch recognizes standalone `hello` and `hi` words using word boundaries. This avoids the historical false positive where `hi` inside `history` or `high` was interpreted as a greeting. Most of the remaining categories still use substring checks.
+The greeting branch recognizes standalone `hello` and `hi` words using word boundaries. The standalone `help`, `support`, `time`, `date`, `weather`, `dance`, and `story` categories also use word boundaries. This avoids common accidental matches such as `hi` in `history`/`high`, `story` in `history`, `time` in `timeline`, and `help` in `helpful`. Other multiword rules still use substring checks.
 
 ## Existing categories
 - Greetings: hello, hi, good morning, good night.

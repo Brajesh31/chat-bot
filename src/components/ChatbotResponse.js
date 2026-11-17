@@ -43,30 +43,30 @@ const getChatbotResponse = (userMessage) => {
     }
   
     // Help & Assistance
-    else if (lowerCaseMessage.includes("help")) {
+    else if (/\bhelp\b/.test(lowerCaseMessage)) {
       return "Sure! I'm here to assist you. Ask me anything! 😊";
-    } else if (lowerCaseMessage.includes("support")) {
+    } else if (/\bsupport\b/.test(lowerCaseMessage)) {
       return "If you need support, I'm all ears! What's up? 📢";
     }
   
     // Time & Date
-    else if (lowerCaseMessage.includes("time")) {
+    else if (/\btime\b/.test(lowerCaseMessage)) {
       return `⏰ The current time is ${new Date().toLocaleTimeString()}.`;
-    } else if (lowerCaseMessage.includes("date")) {
+    } else if (/\bdate\b/.test(lowerCaseMessage)) {
       return `📅 Today's date is ${new Date().toLocaleDateString()}.`;
     }
   
     // Weather
-    else if (lowerCaseMessage.includes("weather")) {
+    else if (/\bweather\b/.test(lowerCaseMessage)) {
       return "I can't predict the weather, but I hope it's sunny where you are! 🌞";
     }
   
     // Random Fun Responses
     else if (lowerCaseMessage.includes("sing a song")) {
       return "🎶 La la la... I'm not the best singer, but I try! 🎤😆";
-    } else if (lowerCaseMessage.includes("dance")) {
+    } else if (/\bdance\b/.test(lowerCaseMessage)) {
       return "🕺💃 I'm grooving! You can't see me, but trust me, it's amazing! 😆";
-    } else if (lowerCaseMessage.includes("story")) {
+    } else if (/\bstory\b/.test(lowerCaseMessage)) {
       return "Once upon a time... Oh wait, let me fetch a good one! 😃📖";
     } else if (lowerCaseMessage.includes("motivate me")) {
       return "You are amazing! 💪 Keep pushing forward, and never give up!";

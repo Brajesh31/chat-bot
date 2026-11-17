@@ -1,0 +1,37 @@
+name: 🔐 Security question (non-sensitive)
+description: For non-sensitive security policy or configuration questions only. Do not disclose vulnerabilities here.
+title: "[Security question]: "
+labels: ["security"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Do not submit vulnerability details, exploit steps, credentials, tokens, or private data in this public form.**
+        
+        To report a suspected vulnerability, use the private reporting link in the repository's issue contact links or SECURITY.md. This form is only for non-sensitive questions about the published security policy or configuration.
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Non-sensitive topic
+      options:
+        - Security policy clarification
+        - Dependency update question
+        - Workflow permission question
+        - Documentation correction
+        - Other non-sensitive question
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question or documentation location
+      description: Do not include any exploit details or secret values.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safe
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I confirm that this submission contains no vulnerability details, exploit steps, secrets, or private user data.
+          required: true

@@ -1,0 +1,50 @@
+name: ⚡ Performance issue
+description: Report a reproducible loading, layout, memory, or interaction performance problem.
+title: "[Performance]: "
+labels: ["performance"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use synthetic prompts. Do not include private transcripts, credentials, or personal information. Report measurements and the device/browser used.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Performance symptom
+      description: Explain what feels slow or what metric regressed.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Include the page state, viewport, and synthetic input.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device / operating system
+  - type: textarea
+    id: measurements
+    attributes:
+      label: Measurements and conditions
+      description: Include tool, network, cache state, and sample count if measured.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized evidence
+      description: Attach relevant console output or screenshots without private data.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed credentials and private conversation content.
+          required: true

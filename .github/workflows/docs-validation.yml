@@ -1,0 +1,37 @@
+name: Documentation Validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "README.md"
+      - "index.html"
+      - "scripts/**"
+      - "package.json"
+      - ".github/workflows/docs-validation.yml"
+  pull_request:
+    paths:
+      - "docs/**"
+      - "README.md"
+      - "index.html"
+      - "scripts/**"
+      - "package.json"
+      - ".github/workflows/docs-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate documentation and visual assets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 26
+          package-manager-cache: false
+      - name: Validate Markdown, links, JSON examples and SVG assets
+        run: npm run docs:check

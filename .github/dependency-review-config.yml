@@ -1,0 +1,5 @@
+fail-on-severity: high
+fail-on-scopes:
+  - runtime
+  - development
+show-patched-versions: true

@@ -1,0 +1,4 @@
+title = "Chat Bot repository secret scanning"
+
+[extend]
+useDefault = true

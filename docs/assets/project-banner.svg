@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 460" role="img" aria-labelledby="title desc">
+  <title id="title">ChatBuddy project banner</title>
+  <desc id="desc">A purple and lavender banner introducing ChatBuddy as a React chat interface demo with local scripted replies, with a decorative chat card illustration on the right.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f0ff"/>
+      <stop offset="1" stop-color="#daccff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="460" rx="34" fill="url(#bg)"/>
+  <circle cx="1280" cy="80" r="120" fill="#fff" opacity=".28"/>
+  <circle cx="1145" cy="390" r="140" fill="#fff" opacity=".18"/>
+  <g font-family="Inter,Arial,sans-serif">
+    <rect x="72" y="74" width="76" height="76" rx="24" fill="#6d4fc2"/>
+    <path d="M93 96h36a9 9 0 0 1 9 9v18a9 9 0 0 1-9 9h-15l-13 10v-10h-8a9 9 0 0 1-9-9v-18a9 9 0 0 1 9-9Z" fill="#fff"/>
+    <circle cx="104" cy="114" r="3.5" fill="#6d4fc2"/><circle cx="115" cy="114" r="3.5" fill="#6d4fc2"/><circle cx="126" cy="114" r="3.5" fill="#6d4fc2"/>
+    <text x="74" y="226" font-size="58" font-weight="800" fill="#30244e">ChatBuddy</text>
+    <text x="76" y="278" font-size="25" font-weight="600" fill="#6d4fc2">A small chat UI, built for learning.</text>
+    <text x="76" y="326" font-size="19" fill="#51486b">React 18 · Vite 6 · Local phrase matching</text>
+    <text x="76" y="370" font-size="16" fill="#51486b">No backend. No database. No generative AI provider.</text>
+    <g transform="translate(900 70)">
+      <rect width="400" height="315" rx="28" fill="#fff" stroke="#c8b8ee" stroke-width="3"/>
+      <rect width="400" height="68" rx="28" fill="#6d4fc2"/>
+      <path d="M0 42h400v26H0z" fill="#6d4fc2"/>
+      <text x="32" y="44" font-size="24" font-weight="700" fill="#fff">ChatBuddy</text>
+      <text x="32" y="94" font-size="13" fill="#837b99">Local demo assistant</text>
+      <rect x="190" y="118" width="172" height="54" rx="15" fill="#6d4fc2"/>
+      <text x="214" y="151" font-size="15" fill="#fff">hello there!</text>
+      <rect x="36" y="196" width="240" height="60" rx="15" fill="#e5d9ff"/>
+      <text x="58" y="220" font-size="14" fill="#30244e">A friendly scripted reply</text>
+      <text x="58" y="241" font-size="14" fill="#30244e">appears in the message log.</text>
+      <rect x="32" y="274" width="336" height="26" rx="13" fill="#f6f2ff" stroke="#d4cae9"/>
+    </g>
+  </g>
+</svg>

@@ -1,21 +1,23 @@
 # 🧩 Diagram Index
 
-The diagrams describe the current implementation unless the title explicitly says proposed. They are Markdown documents containing editable Mermaid source.
+The diagrams describe the current implementation unless explicitly labelled proposed. Mermaid source is editable in the repository.
 
 | Diagram | Purpose | State |
 |---|---|---|
-| [System context](SYSTEM_CONTEXT.md) | Visitor, browser, React, local matcher, and external font boundary | Current |
-| [Message lifecycle](MESSAGE_LIFECYCLE.md) | Prompt submission through local response and rendering | Current |
-| [Component relationships](COMPONENTS.md) | File-level responsibilities and component structure | Current |
+| [System context](SYSTEM_CONTEXT.md) | Visitor, browser, React, matcher, external font boundary | Current |
+| [Message lifecycle](MESSAGE_LIFECYCLE.md) | Form submission through local response and rendering | Current |
+| [Component relationships](COMPONENTS.md) | File responsibilities and component structure | Current |
+| [Chat UI states](CHAT_UI_STATES.md) | Initial, conversation, cleared, and minimized states | Current |
 | [Static deployment](DEPLOYMENT.md) | CI artifact and static hosting path | Current |
 | [Input and empty-input flow](ERROR_FLOW.md) | Trim, validation, response, and ignored input | Current |
-| [Test pipeline](TEST_PIPELINE.md) | Lint, tests, audit, and build stages | Current |
+| [Test pipeline](TEST_PIPELINE.md) | Lint, tests, docs validation, build, and audit | Current |
+| [Incident response](INCIDENT_RESPONSE.md) | Report through triage and recovery | Current process |
 | [Future AI boundary](FUTURE_AI_BOUNDARY.md) | Controls required for a proposed provider integration | Proposed only |
 
-## Diagram conventions
+## Applicability
 
-Solid arrows represent current implemented flow. Dashed arrows represent an external request or non-interactive dependency. A document labelled proposed is not evidence that a feature exists.
+A database ER diagram, authentication flow, authorization flow, API sequence diagram, and backup-database diagram are not created because those systems do not exist in the current application. The browser data flow and in-memory state are documented instead.
 
-## Maintenance
+## Conventions and maintenance
 
-When source files, state transitions, dependencies, network requests, or build steps change, update the affected diagram and its explanatory text. Confirm file names and internal links, then inspect the rendered Mermaid diagram in GitHub. Do not add an artificial diagram for a trivial text-only change.
+Solid arrows represent current flow. Dashed arrows represent external resources or non-interactive dependencies. Proposed components must be labelled. Update diagrams whenever source structure, state transitions, network traffic, or build/deployment behavior changes.

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 100" role="img" aria-labelledby="title desc">
+  <title id="title">ChatBuddy project logo</title>
+  <desc id="desc">A purple rounded chat bubble with three white dots and a small sparkle, next to the ChatBuddy wordmark.</desc>
+  <rect x="4" y="8" width="82" height="82" rx="26" fill="#6d4fc2"/>
+  <path d="M25 29h39a10 10 0 0 1 10 10v19a10 10 0 0 1-10 10H45L31 78v-10h-6a10 10 0 0 1-10-10V39a10 10 0 0 1 10-10Z" fill="#fff" opacity=".98"/>
+  <circle cx="34" cy="49" r="4" fill="#6d4fc2"/>
+  <circle cx="45" cy="49" r="4" fill="#6d4fc2"/>
+  <circle cx="56" cy="49" r="4" fill="#6d4fc2"/>
+  <path d="M70 14l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#d9ccff"/>
+  <text x="108" y="55" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="750" fill="#30244e">ChatBuddy</text>
+  <text x="110" y="79" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="500" letter-spacing="2" fill="#6d4fc2">LOCAL CHAT UI DEMO</text>
+</svg>

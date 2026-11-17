@@ -1,66 +1,350 @@
-# 🗂️ Project Structure
+# 🗂️ Complete Project Structure
+
+The tree below is generated from the repository's tracked file paths on the commit that introduced this guide. It lists existing files, not a proposed layout.
 
 ```text
 chat-bot/
 ├── .github/
 │   ├── DISCUSSION_TEMPLATE/
+│   │   └── ideas.yml
 │   ├── ISSUE_TEMPLATE/
 │   │   ├── accessibility.yml
-│   │   ├── documentation.yml
 │   │   ├── bug_report.yml
+│   │   ├── config.yml
+│   │   ├── documentation.yml
 │   │   ├── feature_request.yml
+│   │   ├── performance_issue.yml
 │   │   ├── question.yml
-│   │   └── config.yml
+│   │   └── security_report.yml
 │   ├── workflows/
-│   ├── PULL_REQUEST_TEMPLATE.md
-│   └── dependabot.yml
+│   │   ├── ci.yml
+│   │   ├── codeql.yml
+│   │   ├── dependency-review.yml
+│   │   ├── docs-validation.yml
+│   │   ├── gitleaks.yml
+│   │   └── update-readme.yml
+│   ├── dependabot.yml
+│   ├── dependency-review-config.yml
+│   └── PULL_REQUEST_TEMPLATE.md
 ├── docs/
-│   ├── assets/                  # Original SVG diagrams and interface wireframes
-│   ├── diagrams/                # Mermaid source and architecture explanations
-│   ├── examples/                # Synthetic prompt fixtures and contract examples
-│   ├── operations/              # Release, monitoring, recovery and incident guidance
-│   ├── security/                # Threat model, privacy and review checklists
-│   ├── templates/               # Reusable project and engineering records
-│   ├── testing/                 # Test strategy, CI, cases and quality gates
-│   └── *.md                     # Product, UX, development and governance handbook
+│   ├── assets/
+│   │   ├── chat-interaction-states.svg
+│   │   ├── chat-ui-preview.svg
+│   │   ├── chatbot-overview.svg
+│   │   ├── logo.svg
+│   │   ├── project-banner.svg
+│   │   ├── README.md
+│   │   ├── response-rules-flow.svg
+│   │   └── responsive-layout.svg
+│   ├── diagrams/
+│   │   ├── CHAT_UI_STATES.md
+│   │   ├── COMPONENTS.md
+│   │   ├── DEPLOYMENT.md
+│   │   ├── ERROR_FLOW.md
+│   │   ├── FUTURE_AI_BOUNDARY.md
+│   │   ├── INCIDENT_RESPONSE.md
+│   │   ├── MESSAGE_LIFECYCLE.md
+│   │   ├── README.md
+│   │   ├── SYSTEM_CONTEXT.md
+│   │   └── TEST_PIPELINE.md
+│   ├── examples/
+│   │   ├── prompt-regression-cases.json
+│   │   ├── README.md
+│   │   ├── response-contract.json
+│   │   └── sample-prompts.md
+│   ├── operations/
+│   │   ├── BACKUP_RECOVERY.md
+│   │   ├── INCIDENT_RESPONSE.md
+│   │   ├── MONITORING.md
+│   │   ├── OPERATIONS.md
+│   │   └── RELEASE_PROCESS.md
+│   ├── security/
+│   │   ├── PRIVACY.md
+│   │   ├── SECURITY_CHECKLIST.md
+│   │   └── THREAT_MODEL.md
+│   ├── templates/
+│   │   ├── accessibility-audit-template.md
+│   │   ├── accessibility-audit.md
+│   │   ├── accessibility-review.md
+│   │   ├── ai-provider-integration-proposal.md
+│   │   ├── api-contract.md
+│   │   ├── api-documentation-template.md
+│   │   ├── architecture-decision-record.md
+│   │   ├── architecture-template.md
+│   │   ├── browser-compatibility-report.md
+│   │   ├── bug-report.md
+│   │   ├── bug-triage.md
+│   │   ├── change-proposal.md
+│   │   ├── chatbot-safety-review.md
+│   │   ├── code-review.md
+│   │   ├── conversation-privacy-review.md
+│   │   ├── data-retention-plan.md
+│   │   ├── database-schema-template.md
+│   │   ├── demo-script.md
+│   │   ├── dependency-security-review.md
+│   │   ├── dependency-update.md
+│   │   ├── deployment-checklist.md
+│   │   ├── documentation-change.md
+│   │   ├── feature-acceptance-review.md
+│   │   ├── feature-proposal.md
+│   │   ├── incident-report.md
+│   │   ├── lesson-plan.md
+│   │   ├── maintenance-checklist.md
+│   │   ├── meeting-notes.md
+│   │   ├── migration-plan.md
+│   │   ├── performance-measurement.md
+│   │   ├── performance-review.md
+│   │   ├── post-deployment-verification.md
+│   │   ├── postmortem.md
+│   │   ├── privacy-review.md
+│   │   ├── project-status-report.md
+│   │   ├── prompt-evaluation.md
+│   │   ├── README.md
+│   │   ├── release-checklist.md
+│   │   ├── release-notes.md
+│   │   ├── response-rule-change.md
+│   │   ├── risk-assessment.md
+│   │   ├── rollback-plan.md
+│   │   ├── security-audit.md
+│   │   ├── security-review.md
+│   │   ├── support-incident-triage.md
+│   │   ├── support-response.md
+│   │   ├── test-case.md
+│   │   ├── test-plan.md
+│   │   ├── test-report.md
+│   │   ├── threat-assessment-template.md
+│   │   ├── tutorial-review.md
+│   │   ├── user-feedback-analysis.md
+│   │   └── user-story.md
+│   ├── testing/
+│   │   ├── CI.md
+│   │   ├── QUALITY_GATES.md
+│   │   ├── TEST_CASES.md
+│   │   └── TESTING_STRATEGY.md
+│   ├── accessibility-guidelines.md
+│   ├── accessibility-testing.md
+│   ├── ACCESSIBILITY.md
+│   ├── accessible-components.md
+│   ├── accessible-forms.md
+│   ├── animation-guidelines.md
+│   ├── api-reference.md
+│   ├── api.md
+│   ├── application-lifecycle.md
+│   ├── architecture-decisions.md
+│   ├── architecture.md
+│   ├── audit-logging.md
+│   ├── branding-guidelines.md
+│   ├── BROWSER_VERIFICATION.md
+│   ├── bug-reporting.md
+│   ├── building.md
+│   ├── CHANGE_IMPACT_MATRIX.md
+│   ├── ci-cd.md
+│   ├── code-standards.md
+│   ├── coding-guidelines.md
+│   ├── color-contrast.md
+│   ├── color-system.md
+│   ├── commands-reference.md
+│   ├── COMPATIBILITY.md
+│   ├── compliance.md
+│   ├── component-architecture.md
+│   ├── CONFIGURATION.md
+│   ├── consent-management.md
+│   ├── CONTENT_LICENSE.md
+│   ├── contributor-guide.md
+│   ├── cookie-policy.md
+│   ├── data-deletion.md
+│   ├── data-flow.md
+│   ├── data-privacy.md
+│   ├── data-protection.md
+│   ├── data-retention.md
+│   ├── data-validation.md
+│   ├── database.md
+│   ├── debugging.md
+│   ├── DECISION_LOG.md
+│   ├── DEPENDENCIES.md
+│   ├── dependency-security.md
+│   ├── deployment.md
+│   ├── deprecation-policy.md
+│   ├── design-patterns.md
+│   ├── design-system.md
+│   ├── design-tokens.md
+│   ├── developer-guide.md
+│   ├── development-workflow.md
+│   ├── development.md
+│   ├── disaster-recovery.md
+│   ├── e2e-testing.md
+│   ├── EDUCATOR_GUIDE.md
+│   ├── environment-setup.md
+│   ├── environment-variables.md
+│   ├── ERROR_HANDLING.md
+│   ├── external-dependencies.md
+│   ├── faq.md
+│   ├── features.md
+│   ├── functional-requirements.md
+│   ├── getting-started.md
+│   ├── github-actions.md
+│   ├── GLOSSARY.md
+│   ├── GOVERNANCE.md
+│   ├── health-checks.md
+│   ├── infrastructure.md
+│   ├── INPUT_FORMATS.md
+│   ├── installation.md
+│   ├── integration-testing.md
+│   ├── integrations.md
+│   ├── keyboard-navigation.md
+│   ├── known-issues.md
+│   ├── LEARNING_PATH.md
+│   ├── legal-considerations.md
+│   ├── local-development.md
+│   ├── logging.md
+│   ├── maintainer-guide.md
+│   ├── MAINTENANCE.md
+│   ├── migration-guide.md
+│   ├── module-documentation.md
+│   ├── navigation-structure.md
+│   ├── non-functional-requirements.md
+│   ├── observability.md
+│   ├── page-documentation.md
+│   ├── performance-testing.md
+│   ├── PERFORMANCE.md
+│   ├── privacy.md
+│   ├── problem-statement.md
+│   ├── PRODUCT_BEHAVIOR.md
+│   ├── PRODUCT_REQUIREMENTS.md
+│   ├── product-overview.md
+│   ├── PROJECT_STRUCTURE.md
+│   ├── project-background.md
+│   ├── project-objectives.md
+│   ├── project-status.md
+│   ├── qa.md
+│   ├── README.md
+│   ├── RELEASE_CHECKLIST.md
+│   ├── release-management.md
+│   ├── REPOSITORY_COMPLETION.md
+│   ├── REPRODUCIBILITY.md
+│   ├── RESPONSE_CATALOG.md
+│   ├── RESPONSE_RULES.md
+│   ├── responsive-design.md
+│   ├── RISK_REGISTER.md
+│   ├── rollback.md
+│   ├── running-locally.md
+│   ├── scalability.md
+│   ├── scope-and-limitations.md
+│   ├── screen-reader-support.md
+│   ├── secret-management.md
+│   ├── security-architecture.md
+│   ├── security-best-practices.md
+│   ├── security-risk-register.md
+│   ├── security-testing.md
+│   ├── security.md
+│   ├── solution-overview.md
+│   ├── SUPPORT_MATRIX.md
+│   ├── system-design.md
+│   ├── technical-debt.md
+│   ├── technical-overview.md
+│   ├── technology-stack.md
+│   ├── test-coverage.md
+│   ├── test-strategy.md
+│   ├── testing.md
+│   ├── third-party-services.md
+│   ├── troubleshooting.md
+│   ├── typography.md
+│   ├── ui-ux-guidelines.md
+│   ├── unit-testing.md
+│   ├── upgrade-guide.md
+│   ├── use-cases.md
+│   ├── USER_GUIDE.md
+│   ├── USER_STORIES.md
+│   ├── user-journeys.md
+│   ├── user-personas.md
+│   ├── UX_SPECIFICATION.md
+│   ├── VERSIONING.md
+│   ├── visual-regression-testing.md
+│   ├── vulnerability-management.md
+│   └── wcag-compliance.md
 ├── public/
 │   └── chatbot.svg
+├── scripts/
+│   ├── README.md
+│   └── validate-docs.mjs
 ├── src/
 │   ├── components/
-│   │   ├── ChatForm.jsx
-│   │   ├── ChatMessage.jsx
 │   │   ├── ChatbotIcon.jsx
-│   │   └── ChatbotResponse.js
-│   ├── App.jsx
+│   │   ├── ChatbotResponse.js
+│   │   ├── ChatForm.jsx
+│   │   └── ChatMessage.jsx
 │   ├── App.css
+│   ├── App.jsx
 │   ├── chatbot-enhancements.css
 │   ├── index.css
 │   └── main.jsx
 ├── tests/
 │   ├── ChatbotResponse.test.js
 │   └── repository-integrity.test.js
-├── index.html
-├── package.json
-├── package-lock.json
+├── .editorconfig
+├── .env.example
+├── .gitattributes
+├── .gitignore
+├── .gitleaks.toml
+├── .nvmrc
+├── AUTHORS.md
+├── CHANGELOG.md
+├── CITATION.cff
+├── CODE_OF_CONDUCT.md
+├── CODEOWNERS
+├── CONTRIBUTING.md
 ├── eslint.config.js
+├── index.html
+├── LICENSE
+├── package-lock.json
+├── package.json
+├── README.md
+├── ROADMAP.md
+├── SECURITY.md
+├── SUPPORT.md
 └── vite.config.js
 ```
 
-## Source boundaries
+## Important source responsibilities
 
-- src/main.jsx mounts the React application.
-- src/App.jsx owns the submitted chat history, visibility controls, and scroll behavior.
-- src/components/ChatForm.jsx validates and submits plain text.
-- src/components/ChatbotResponse.js returns local scripted responses.
-- src/components/ChatMessage.jsx renders one message.
-- src/App.css owns high-level container sizing.
-- src/index.css contains the base visual styles.
-- src/chatbot-enhancements.css contains responsive and interaction refinements.
+| File | Responsibility |
+|---|---|
+| `index.html` | HTML shell, metadata, root mount and external font references |
+| `src/main.jsx` | React entry point |
+| `src/App.jsx` | Main UI, chat history state, visibility controls and scroll behavior |
+| `src/components/ChatForm.jsx` | Input trimming, blank guard, local reply call and state update |
+| `src/components/ChatbotResponse.js` | Ordered local phrase-matching rules and prewritten responses |
+| `src/components/ChatMessage.jsx` | One user or bot-role message view |
+| `src/components/ChatbotIcon.jsx` | Reusable visual bot icon |
+| `src/index.css` | Base page, panel, message and form styles |
+| `src/App.css` | Application container and popup sizing |
+| `src/chatbot-enhancements.css` | Header actions, focus, mobile layout and reduced motion |
+| `vite.config.js` | Vite and React plugin configuration |
+| `eslint.config.js` | ESLint configuration |
+| `package.json` | npm scripts and package declarations |
+| `package-lock.json` | Exact resolved npm dependency tree |
+| `.nvmrc` | Preferred local Node.js version |
+| `scripts/validate-docs.mjs` | Local Markdown, asset-reference, JSON and SVG validation |
+| `tests/ChatbotResponse.test.js` | Response-rule regression suite |
+| `tests/repository-integrity.test.js` | Manifest, links, assets and repository-contract tests |
 
-## Documentation boundaries
+## Directory responsibilities
 
-The docs directory is organized by purpose: assets, diagrams, examples, operations, security, reusable templates, and testing. The top-level Markdown files cover product, UX, architecture, development, compatibility, privacy, and governance.
+- **.github/** contains issue forms, pull-request guidance, Dependabot settings and GitHub Actions workflows.
+- **docs/** contains product, requirements, architecture, UX, development, testing, security, privacy, operations, diagrams, examples, and reusable templates.
+- **docs/assets/** contains original SVG identity and illustration assets. The wireframes are not screenshots.
+- **docs/diagrams/** contains editable Mermaid source and explanatory notes.
+- **docs/examples/** contains synthetic prompt fixtures and non-runtime examples.
+- **docs/templates/** contains reusable engineering and review records.
+- **public/** contains static browser-facing assets such as the favicon.
+- **scripts/** contains repository validation utilities.
+- **src/** contains the React UI and stylesheet modules.
+- **tests/** contains Node.js unit and repository-integrity tests.
 
-## Runtime boundary
+## Architecture boundaries
 
-The application is browser-only. It has no backend, database, HTTP API, or persistent chat storage. Automated tests run through Node.js's built-in test runner. Browser rendering and full accessibility verification remain manual.
+The runtime is a browser-only React application. There is no backend, database, API server, authentication layer, persistent transcript store, or AI provider. API, database, and integration documentation describes these absences and the review requirements for any future addition.
+
+## Updating this tree
+
+Regenerate the tree after files or directories are added, moved, or removed. Run `npm run docs:check` and `npm test` after updating it.

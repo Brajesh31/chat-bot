@@ -1,3 +1,11 @@
+<p align="center">
+  <img src="docs/assets/logo.svg" alt="ChatBuddy logo" width="320">
+</p>
+
+<p align="center">
+  <img src="docs/assets/project-banner.svg" alt="ChatBuddy React chat interface project banner" width="100%">
+</p>
+
 # Chat Bot 🤖
 
 A lightweight browser-only chat interface built with **React 18** and **Vite 6**. It demonstrates chat UI composition, React state, form handling, and locally scripted response selection.
@@ -5,14 +13,15 @@ A lightweight browser-only chat interface built with **React 18** and **Vite 6**
 > [!IMPORTANT]
 > **This is not an LLM-powered chatbot.** It does not call a model API, backend, database, account system, or remote chatbot service. Replies are selected in the browser from hand-written phrase rules in src/components/ChatbotResponse.js.
 
-<p align="center"><img src="docs/assets/chat-ui-preview.svg" alt="Illustrative ChatBuddy interface preview with welcome message, visitor prompt, scripted reply and message input" width="85%"></p>
-<p align="center"><img src="docs/assets/chatbot-overview.svg" alt="Browser chat flow from prompt input to local phrase matching, state and rendered messages" width="100%"></p>
-<p align="center"><img src="docs/assets/chat-interaction-states.svg" alt="Illustrative states for initial chat, submitted prompt, cleared conversation and minimized panel" width="100%"></p>
-<p align="center"><img src="docs/assets/responsive-layout.svg" alt="Illustrative desktop centered chat panel and mobile full-width chat layout" width="100%"></p>
-
 <p align="center">
 <a href="https://github.com/Brajesh31/chat-bot/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Brajesh31/chat-bot/actions/workflows/ci.yml/badge.svg"></a>
 <a href="https://github.com/Brajesh31/chat-bot/actions/workflows/codeql.yml"><img alt="CodeQL" src="https://github.com/Brajesh31/chat-bot/actions/workflows/codeql.yml/badge.svg"></a>
+<a href="https://github.com/Brajesh31/chat-bot/actions/workflows/docs-validation.yml"><img alt="Documentation validation" src="https://github.com/Brajesh31/chat-bot/actions/workflows/docs-validation.yml/badge.svg"></a>
+<a href="https://github.com/Brajesh31/chat-bot/actions/workflows/gitleaks.yml"><img alt="Secret scanning" src="https://github.com/Brajesh31/chat-bot/actions/workflows/gitleaks.yml/badge.svg"></a>
+<a href="https://github.com/Brajesh31/chat-bot/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/Brajesh31/chat-bot"></a>
+<a href="https://github.com/Brajesh31/chat-bot/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/Brajesh31/chat-bot"></a>
+<img alt="Last commit" src="https://img.shields.io/github/last-commit/Brajesh31/chat-bot">
+<img alt="Repository size" src="https://img.shields.io/github/repo-size/Brajesh31/chat-bot">
 <img alt="React" src="https://img.shields.io/badge/React-18.3-61DAFB?logo=react&logoColor=20232a">
 <img alt="Vite" src="https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white">
 <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-ESM-F7DF1E?logo=javascript&logoColor=222">
@@ -30,6 +39,7 @@ A lightweight browser-only chat interface built with **React 18** and **Vite 6**
 - 📱 Responsive layout and reduced-motion support.
 - ⚡ Fast local development and static Vite production build.
 - 🧪 Automated response and repository-integrity tests using Node's built-in test runner.
+- 🧰 Automated documentation-link, JSON-example, and SVG-asset validation.
 
 ## 🧭 Capability status
 
@@ -39,6 +49,9 @@ A lightweight browser-only chat interface built with **React 18** and **Vite 6**
 | Local scripted responses | ✅ Implemented |
 | Clear and minimize controls | ✅ Implemented |
 | Automated response-rule tests | ✅ Implemented |
+| Documentation validation | ✅ Implemented |
+| CodeQL analysis | ✅ Configured |
+| Secret scanning | ✅ Configured |
 | LLM / generative AI | ❌ Not integrated |
 | Backend API | ❌ Not present |
 | Database / transcript persistence | ❌ Not present |
@@ -48,7 +61,7 @@ A lightweight browser-only chat interface built with **React 18** and **Vite 6**
 ## 🚀 Quick start
 
 ### Requirements
-- Node.js 20 or later recommended.
+- Node.js 26 recommended. CI also checks Node.js 22 and 24.
 - npm and Git.
 - Modern browser with JavaScript enabled.
 
@@ -57,22 +70,25 @@ A lightweight browser-only chat interface built with **React 18** and **Vite 6**
 ```bash
 git clone https://github.com/Brajesh31/chat-bot.git
 cd chat-bot
+nvm use
 npm ci
 npm run dev
 ```
 
-Open the local URL printed by Vite, usually http://localhost:5173.
+Open the local URL printed by Vite, usually http://localhost:5173. If you do not use nvm, install a Node.js version listed in the support matrix.
 
 ### Available commands
 
 | Command | Purpose |
 |---|---|
+| npm ci | Install exact locked dependencies |
 | npm run dev | Start Vite development server |
 | npm run build | Create static bundle in dist/ |
 | npm run preview | Preview production bundle locally |
 | npm run lint | Run ESLint |
-| npm test | Run automated response-rule tests |
+| npm test | Run automated Node tests |
 | npm run test:watch | Re-run tests when files change |
+| npm run docs:check | Validate local docs links, examples, and SVG assets |
 | npm audit --audit-level=high | Fail when high-severity dependency advisories are present |
 
 ## 🏗️ How the current app works
@@ -88,28 +104,30 @@ flowchart TD
  G --> H[React renders chat bubbles]
 ```
 
-The prompt is processed locally. The response helper does not send messages over the network. See the [response matching flow](docs/assets/response-rules-flow.svg), [message lifecycle](docs/diagrams/MESSAGE_LIFECYCLE.md), and [product behavior contract](docs/PRODUCT_BEHAVIOR.md).
+The prompt is processed locally. The response helper does not send messages over the network. See the [message lifecycle](docs/diagrams/MESSAGE_LIFECYCLE.md), [product behavior contract](docs/PRODUCT_BEHAVIOR.md), and [system context](docs/diagrams/SYSTEM_CONTEXT.md).
 
 ## 🗂️ Project structure
 
 ```text
 chat-bot/
 ├── .github/
-│   ├── DISCUSSION_TEMPLATE/
-│   ├── ISSUE_TEMPLATE/          # Bug, feature, question, accessibility and docs forms
-│   ├── workflows/               # CI, CodeQL and manual README workflow
+│   ├── ISSUE_TEMPLATE/           # Bug, feature, docs, accessibility, security and performance forms
+│   ├── DISCUSSION_TEMPLATE/      # Idea template (GitHub Discussions is not enabled)
+│   ├── workflows/                # CI, CodeQL, docs, dependency, secret-scan and manual README jobs
+│   ├── dependency-review-config.yml
 │   ├── PULL_REQUEST_TEMPLATE.md
 │   └── dependabot.yml
 ├── docs/
-│   ├── assets/                  # Original SVG diagrams and UI wireframes
-│   ├── diagrams/                # Mermaid architecture and flow diagrams
-│   ├── examples/                # Synthetic prompts and response fixtures
-│   ├── operations/              # Release, monitoring and incident guidance
-│   ├── security/                # Threat model, privacy and security checks
-│   ├── templates/               # Reusable engineering templates
-│   ├── testing/                 # Test strategy, CI and quality gates
-│   └── *.md                     # Product and engineering handbook
-├── public/                      # Static assets and branded favicon
+│   ├── assets/                   # Original SVG logo, banner, diagrams and wireframes
+│   ├── diagrams/                 # Mermaid architecture, lifecycle, state and workflow diagrams
+│   ├── examples/                 # Synthetic prompts and response fixtures
+│   ├── operations/               # Release, monitoring, recovery and incident guidance
+│   ├── security/                 # Threat model, privacy and security checks
+│   ├── templates/                # Reusable engineering and governance templates
+│   ├── testing/                  # Test strategy, CI, cases and quality gates
+│   └── *.md                      # Product, UX, engineering and maintenance handbook
+├── public/                       # Static assets and branded favicon
+├── scripts/                      # Real repository validation scripts
 ├── src/
 │   ├── components/
 │   │   ├── ChatForm.jsx
@@ -121,14 +139,16 @@ chat-bot/
 │   ├── chatbot-enhancements.css
 │   ├── index.css
 │   └── main.jsx
-├── tests/                       # Node built-in test suite
+├── tests/                        # Node built-in test suite
+├── .gitleaks.toml
+├── .nvmrc
 ├── index.html
 ├── package.json
 ├── package-lock.json
 └── vite.config.js
 ```
 
-Explore the [documentation hub](docs/README.md) and [source structure guide](docs/PROJECT_STRUCTURE.md).
+See the [full project structure guide](docs/PROJECT_STRUCTURE.md) and [repository completion matrix](docs/REPOSITORY_COMPLETION.md).
 
 ## 🧪 Quality checks
 
@@ -136,11 +156,12 @@ Explore the [documentation hub](docs/README.md) and [source structure guide](doc
 npm ci
 npm run lint
 npm test
-npm audit --audit-level=high
+npm run docs:check
 npm run build
+npm audit --audit-level=high
 ```
 
-GitHub Actions runs these checks on Node.js 20 and 22. The tests cover local response behavior, prompt regressions, and repository integrity. Browser layout, complete React interaction, accessibility, and live deployment still require additional browser-level or manual verification.
+GitHub Actions runs the quality matrix on Node.js 22, 24, and 26. CodeQL, Gitleaks, documentation validation, and dependency review run in their own workflows. The tests cover local response behavior and repository integrity. Browser interaction, accessibility, and live deployment still require manual verification.
 
 ## 🔐 Security and privacy
 
@@ -154,32 +175,29 @@ GitHub Actions runs these checks on Node.js 20 and 22. The tests cover local res
 
 ## 🧭 Roadmap
 
-1. Improve keyboard focus and screen-reader announcements.
-2. Improve deterministic rule matching and input edge-case coverage.
-3. Consider opt-in local transcript storage with reset and retention controls.
-4. Design a server boundary before any model-provider integration.
-5. Define consent, abuse protection, rate limits, and privacy disclosures before remote inference.
+1. Complete manual keyboard and screen-reader verification.
+2. Improve deterministic rule matching and ambiguous phrase coverage.
+3. Review external font usage and contrast measurements.
+4. Consider opt-in local transcript storage only with reset and retention controls.
+5. Design a server boundary before any model-provider integration.
 
 Roadmap items are proposals, not current functionality. See [ROADMAP.md](ROADMAP.md).
 
 ## 📚 Documentation
 
-| Guide | Purpose |
-|---|---|
-| [Documentation home](docs/README.md) | Full handbook catalogue |
-| [User guide](docs/USER_GUIDE.md) | Current UI behavior |
-| [Product behavior contract](docs/PRODUCT_BEHAVIOR.md) | Input, response and state guarantees |
-| [UX specification](docs/UX_SPECIFICATION.md) | UI states and design constraints |
-| [Architecture](docs/architecture.md) | Component relationships |
-| [Response rules](docs/RESPONSE_RULES.md) | Local scripted behavior |
-| [Response catalog](docs/RESPONSE_CATALOG.md) | Trigger categories and behavior |
-| [Development](docs/development.md) | Contributor workflow |
-| [Testing strategy](docs/testing/TESTING_STRATEGY.md) | Automated and manual test scope |\n| [Dependency status](docs/DEPENDENCIES.md) | Current dependency inventory and security advisories |
-| [Browser verification](docs/BROWSER_VERIFICATION.md) | Manual UI and accessibility checks |
-| [Deployment](docs/deployment.md) | Static hosting |
-| [Threat model](docs/security/THREAT_MODEL.md) | Trust boundaries |
-| [Troubleshooting](docs/troubleshooting.md) | Common issues |
-| [Templates](docs/templates/README.md) | Reusable project templates |
+Start at the [documentation hub](docs/README.md). Important guides include:
+- [Product overview](docs/product-overview.md)
+- [Functional requirements](docs/functional-requirements.md)
+- [UX specification](docs/UX_SPECIFICATION.md)
+- [System design](docs/system-design.md)
+- [Component architecture](docs/component-architecture.md)
+- [Developer guide](docs/developer-guide.md)
+- [Testing strategy](docs/testing.md)
+- [Browser verification](docs/BROWSER_VERIFICATION.md)
+- [Security architecture](docs/security-architecture.md)
+- [Privacy overview](docs/privacy.md)
+- [Repository completion matrix](docs/REPOSITORY_COMPLETION.md)
+- [Reusable templates](docs/templates/README.md)
 
 ## 🤝 Contributing
 

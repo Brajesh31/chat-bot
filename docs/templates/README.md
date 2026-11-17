@@ -7,8 +7,11 @@ These templates are reusable starting points, not completed reviews or approvals
 - [User story](user-story.md)
 - [Change proposal](change-proposal.md)
 - [Architecture decision record](architecture-decision-record.md)
+- [Architecture description](architecture-template.md)
 - [Feature acceptance review](feature-acceptance-review.md)
 - [User feedback analysis](user-feedback-analysis.md)
+- [Project status report](project-status-report.md)
+- [Meeting notes](meeting-notes.md)
 
 ## Engineering and quality
 - [Bug report](bug-report.md)
@@ -16,6 +19,7 @@ These templates are reusable starting points, not completed reviews or approvals
 - [Code review](code-review.md)
 - [Test plan](test-plan.md)
 - [Test case](test-case.md)
+- [Test execution report](test-report.md)
 - [Documentation change](documentation-change.md)
 - [Dependency update](dependency-update.md)
 - [Dependency security review](dependency-security-review.md)
@@ -25,12 +29,16 @@ These templates are reusable starting points, not completed reviews or approvals
 
 ## Security, privacy, and accessibility
 - [Security review](security-review.md)
+- [Security audit record](security-audit.md)
+- [Threat assessment](threat-assessment-template.md)
+- [Risk assessment](risk-assessment.md)
 - [Chatbot safety review](chatbot-safety-review.md)
 - [Privacy review](privacy-review.md)
 - [Conversation privacy review](conversation-privacy-review.md)
 - [Data retention plan](data-retention-plan.md)
 - [Accessibility review](accessibility-review.md)
 - [Accessibility audit](accessibility-audit.md)
+- [Accessibility audit record template](accessibility-audit-template.md)
 
 ## Delivery and operations
 - [Incident report](incident-report.md)
@@ -40,6 +48,8 @@ These templates are reusable starting points, not completed reviews or approvals
 - [Deployment checklist](deployment-checklist.md)
 - [Post-deployment verification](post-deployment-verification.md)
 - [Rollback plan](rollback-plan.md)
+- [Migration plan](migration-plan.md)
+- [Maintenance checklist](maintenance-checklist.md)
 - [Support response](support-response.md)
 - [Support incident triage](support-incident-triage.md)
 
@@ -51,6 +61,8 @@ These templates are reusable starting points, not completed reviews or approvals
 - [Prompt evaluation](prompt-evaluation.md)
 - [AI provider integration proposal](ai-provider-integration-proposal.md)
 - [API contract proposal](api-contract.md)
+- [API documentation template](api-documentation-template.md)
+- [Database schema template](database-schema-template.md)
 
 ## How to use templates responsibly
 

@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "node --test",
-    "test:watch": "node --test --watch"
+    "test:watch": "node --test --watch",
+    "docs:check": "node scripts/validate-docs.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",

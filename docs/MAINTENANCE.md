@@ -5,15 +5,17 @@
 ### Every change
 - Keep changes focused and preserve unrelated application files.
 - Add tests for new behavior and regressions.
+- Run npm run docs:check for local links and visual assets.
 - Update docs when behavior, dependencies, privacy, configuration, or deployment changes.
 - Keep Mermaid diagrams aligned with the implementation.
 - Do not add fake screenshots, fabricated metrics, or placeholder claims.
 
 ### Dependency maintenance
 - Review Dependabot pull requests and upstream release notes.
-- Check compatibility with the supported Node.js and React versions.
+- Check compatibility with Node.js 22, 24, and 26.
 - Keep package.json and package-lock.json synchronized.
-- Run npm ci, lint, tests, npm audit, and the production build.
+- Run npm ci, lint, tests, docs validation, npm audit, and the production build.
+- Review Gitleaks and dependency-review workflow results.
 - Record why an override or advisory exception is necessary and when it will be reviewed.
 
 ### Release maintenance

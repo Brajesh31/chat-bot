@@ -9,6 +9,9 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readJson = (relativePath) =>
   JSON.parse(readFileSync(path.join(root, relativePath), "utf8"));
 
+const readText = (relativePath) =>
+  readFileSync(path.join(root, relativePath), "utf8");
+
 const ignoredDirectories = new Set([".git", "node_modules", "dist", "coverage"]);
 
 const walk = (directory) =>
@@ -48,6 +51,34 @@ test("package.json and package-lock.json root dependencies stay aligned", () => 
   assert.deepEqual(lock.packages[""].devDependencies, packageJson.devDependencies);
 });
 
+test("the documentation validator is available through npm scripts", () => {
+  const packageJson = readJson("package.json");
+  assert.equal(packageJson.scripts["docs:check"], "node scripts/validate-docs.mjs");
+  assert.ok(existsSync(path.join(root, "scripts", "validate-docs.mjs")));
+  assert.ok(existsSync(path.join(root, "scripts", "README.md")));
+});
+
+test("the repository pins and tests maintained Node.js LTS lines", () => {
+  assert.equal(readText(".nvmrc").trim(), "26");
+  const ci = readText(".github/workflows/ci.yml");
+  assert.match(ci, /node-version:\s*\[22,\s*24,\s*26\]/);
+  assert.match(ci, /npm run docs:check/);
+  assert.match(ci, /npm run build[\s\S]*npm audit --audit-level=high/);
+});
+
+test("security and documentation workflows are present", () => {
+  for (const relativePath of [
+    ".github/workflows/codeql.yml",
+    ".github/workflows/docs-validation.yml",
+    ".github/workflows/dependency-review.yml",
+    ".github/workflows/gitleaks.yml",
+    ".github/dependency-review-config.yml",
+    ".gitleaks.toml",
+  ]) {
+    assert.ok(existsSync(path.join(root, relativePath)), `missing ${relativePath}`);
+  }
+});
+
 test("all local Markdown links resolve to repository files", () => {
   const broken = [];
 
@@ -72,22 +103,23 @@ test("all local Markdown links resolve to repository files", () => {
 });
 
 test("production HTML references the branded favicon", () => {
-  const html = readFileSync(path.join(root, "index.html"), "utf8");
+  const html = readText("index.html");
   assert.match(html, /href="\/chatbot\.svg"/);
   assert.ok(existsSync(path.join(root, "public", "chatbot.svg")));
   assert.doesNotMatch(html, /vite\.svg/i);
 });
 
-test("all documentation SVG assets have accessible titles and descriptions", () => {
+test("all documentation SVG assets are indexed and accessible", () => {
   const assetsDirectory = path.join(root, "docs", "assets");
   const assets = readdirSync(assetsDirectory)
-    .filter((name) => name.endsWith(".svg"))
-    .map((name) => path.join("docs", "assets", name));
+    .filter((name) => name.endsWith(".svg"));
 
-  assert.ok(assets.length >= 5, "expected the documented visual asset set");
+  assert.ok(assets.length >= 7, "expected logo, banner, and visual asset set");
 
-  for (const relativePath of assets) {
-    const svg = readFileSync(path.join(root, relativePath), "utf8");
+  const index = readText("docs/assets/README.md");
+  for (const asset of assets) {
+    assert.ok(index.includes(`(${asset})`), `asset not indexed: ${asset}`);
+    const svg = readText(path.join("docs", "assets", asset));
     assert.match(svg, /<svg\b/);
     assert.match(svg, /<title\b/);
     assert.match(svg, /<desc\b/);
@@ -96,19 +128,25 @@ test("all documentation SVG assets have accessible titles and descriptions", () 
 });
 
 test("the app stylesheet has base layout rules", () => {
-  const stylesheet = readFileSync(path.join(root, "src", "App.css"), "utf8");
+  const stylesheet = readText("src/App.css");
   assert.match(stylesheet, /\.container/);
   assert.match(stylesheet, /\.chatbot-popup/);
 });
 
 test("the browser verification guide distinguishes manual checks from automation", () => {
-  const guide = readFileSync(path.join(root, "docs", "BROWSER_VERIFICATION.md"), "utf8");
+  const guide = readText("docs/BROWSER_VERIFICATION.md");
   assert.match(guide, /Manual Browser Verification/i);
   assert.match(guide, /not run/i);
 });
 
+test("the repository completion matrix separates applicable work from outstanding checks", () => {
+  const matrix = readText("docs/REPOSITORY_COMPLETION.md");
+  assert.match(matrix, /Not applicable/i);
+  assert.match(matrix, /Remaining manual verification/i);
+});
+
 test("the test handbook describes the Node.js built-in test runner", () => {
-  const handbook = readFileSync(path.join(root, "docs/testing/TESTING_STRATEGY.md"), "utf8");
+  const handbook = readText("docs/testing/TESTING_STRATEGY.md");
   assert.match(handbook, /built-in test runner/i);
   assert.doesNotMatch(handbook, /Vitest, jsdom, and Testing Library are used/i);
 });

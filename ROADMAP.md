@@ -1,21 +1,25 @@
-# Roadmap
+# Roadmap 🧭
 
-This is a planning document for the current frontend prototype. It does not set delivery dates or promise that a feature will be implemented.
+Items below are proposals, not implemented capabilities.
 
-## Quality improvements
+## Near term
+- [ ] Improve input labels and keyboard focus.
+- [ ] Add polite announcements for new messages.
+- [ ] Improve deterministic rule matching and ambiguous-phrase tests.
+- [ ] Review external font usage.
+- [ ] Add browser-level coverage for the main flow.
 
-- Add unit tests for phrase matching, empty input, random response selection, and message rendering.
-- Add a clear empty-input state and accessible labels for controls.
-- Give the header collapse button real behavior or remove it.
-- Add keyboard and screen-reader checks for chat submission and message announcements.
-- Review external font loading and provide a privacy-conscious local/system fallback.
+## Medium term
+- [ ] Consider opt-in local history with reset/delete controls.
+- [ ] Design privacy requirements for remote AI integration.
+- [ ] Define server authentication, validation, rate limits, abuse and provider-error handling before implementation.
 
-## Possible future product work
+## Long term
+- [ ] Add provider-agnostic server integration after threat-model review.
+- [ ] Add export and retention controls if persistence is introduced.
+- [ ] Add privacy-preserving deployment monitoring.
 
-- Add conversation reset and optional local persistence with clear user controls.
-- Add a remote model provider only with a server-side integration, explicit data-handling documentation, and secret management.
-- Add an API or database only if a concrete product requirement needs one.
-
-## Propose an item
-
-Open an issue with the user problem, proposed behavior, and any privacy, configuration, or compatibility effects. Follow [CONTRIBUTING.md](CONTRIBUTING.md). Priorities may change as the project evolves.
+## Non-goals until explicitly approved
+- Exposing provider credentials in browser code.
+- Describing canned replies as generative AI.
+- Persisting personal conversations without notice and deletion controls.

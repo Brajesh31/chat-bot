@@ -1,0 +1,35 @@
+name: Bug report
+description: Report a reproducible defect.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      placeholder: "1. ...\n2. ..."
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and version
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Safe reporting
+      options:
+        - label: I removed credentials and private conversation content.
+          required: true

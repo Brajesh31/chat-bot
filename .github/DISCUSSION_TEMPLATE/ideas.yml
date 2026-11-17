@@ -1,0 +1,10 @@
+title: "Idea: "
+body:
+  - type: textarea
+    attributes:
+      label: Idea and user impact
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Trade-offs

@@ -70,6 +70,7 @@ Open the local URL printed by Vite, usually `http://localhost:5173`.
 | `npm run lint` | Run ESLint |
 | `npm test` | Run automated response-rule tests |
 | `npm run test:watch` | Re-run tests when files change |
+| `npm audit --audit-level=high` | Fail when high-severity dependency advisories are present |
 
 ## 🏗️ How the current app works
 
@@ -132,6 +133,7 @@ Explore the [documentation hub](docs/README.md) and [source structure guide](doc
 npm ci
 npm run lint
 npm test
+npm audit --audit-level=high
 npm run build
 ```
 
@@ -144,6 +146,7 @@ GitHub Actions runs these checks on Node.js 20 and 22. The tests cover local res
 - Keep user-controlled content rendered as text, not raw HTML.
 - Treat prompts as potentially sensitive.
 - The page loads Google Fonts from an external origin.
+- The committed npm lockfile was refreshed, and the post-update npm audit reported zero known vulnerabilities.
 - Read [SECURITY.md](SECURITY.md), [threat model](docs/security/THREAT_MODEL.md), and [privacy notes](docs/security/PRIVACY.md).
 
 ## 🧭 Roadmap

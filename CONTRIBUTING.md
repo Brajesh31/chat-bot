@@ -17,6 +17,7 @@ npm run dev
 ```bash
 npm run lint
 npm test
+npm audit --audit-level=high
 npm run build
 ```
 

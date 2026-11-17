@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   quality:
-    name: Lint, test and build
+    name: Lint, test, audit and build
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -23,7 +23,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
-      - run: npm ci
-      - run: npm run lint
-      - run: npm test
-      - run: npm run build
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Run tests
+        run: npm test
+      - name: Audit high-severity vulnerabilities
+        run: npm audit --audit-level=high
+      - name: Build
+        run: npm run build

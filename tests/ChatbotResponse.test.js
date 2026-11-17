@@ -25,6 +25,13 @@ test("does not treat hi inside high as a greeting", () => {
   assert.equal(response, "Hmm... I'm not sure about that! 🤔");
 });
 
+test("recognizes hi as a standalone greeting", () => {
+  assert.equal(
+    getChatbotResponse("hi there"),
+    "Hey there! 😊 How can I brighten your day?",
+  );
+});
+
 test("returns the configured morning greeting", () => {
   assert.match(getChatbotResponse("good morning"), /Good morning/);
 });
@@ -40,6 +47,16 @@ test("returns a stable first joke when randomness is controlled", () => {
 test("returns a stable first fact when randomness is controlled", () => {
   const response = withRandomValue(0, () => getChatbotResponse("tell me a fact"));
   assert.equal(response, "Did you know? Honey never spoils! 🍯 It can last forever!");
+});
+
+test("does not mistake timeline for the time intent", () => {
+  const response = withRandomValue(0, () => getChatbotResponse("timeline visualization"));
+  assert.equal(response, "Hmm... I'm not sure about that! 🤔");
+});
+
+test("does not mistake helpful for a help request", () => {
+  const response = withRandomValue(0, () => getChatbotResponse("helpful resources for beginners"));
+  assert.equal(response, "Hmm... I'm not sure about that! 🤔");
 });
 
 test("returns the first fallback for an unknown prompt when randomness is controlled", () => {

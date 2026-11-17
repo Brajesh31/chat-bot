@@ -14,13 +14,13 @@ const getChatbotResponse = (userMessage) => {
     else if (lowerCaseMessage.includes("how are you")) {
       return "I'm just a bot, but I'm feeling fantastic! How about you? 😃";
     } else if (lowerCaseMessage.includes("what is your name")) {
-      return "I'm ChatBuddy, your friendly AI assistant! 🤖";
+      return "I'm ChatBuddy, your friendly scripted chat demo! 🤖";
     } else if (lowerCaseMessage.includes("who created you")) {
-      return "I was created by a team of tech wizards! 🧙‍♂️✨";
+      return "I was built as a small React chatbot demonstration! 🧙‍♂️✨";
     } else if (lowerCaseMessage.includes("where do you live")) {
-      return "I live inside your device! 📱 But my heart belongs to the internet. 🌍";
+      return "I run in your browser, right here on this page! 🌐";
     } else if (lowerCaseMessage.includes("are you human")) {
-      return "Nope! I'm 100% AI, but I try my best to be friendly! 😊";
+      return "Nope! I'm a scripted chatbot demo, not a human or an AI model. 😊";
     }
   
     // Fun & Jokes
@@ -67,11 +67,11 @@ const getChatbotResponse = (userMessage) => {
     } else if (/\bdance\b/.test(lowerCaseMessage)) {
       return "🕺💃 I'm grooving! You can't see me, but trust me, it's amazing! 😆";
     } else if (/\bstory\b/.test(lowerCaseMessage)) {
-      return "Once upon a time... Oh wait, let me fetch a good one! 😃📖";
+      return "Once upon a time... This demo uses a scripted story reply, not a story generator. 📖";
     } else if (lowerCaseMessage.includes("motivate me")) {
       return "You are amazing! 💪 Keep pushing forward, and never give up!";
     } else if (lowerCaseMessage.includes("are you real")) {
-      return "I’m as real as your internet connection! 😂";
+      return "I'm a real piece of software, but my replies use pre-written rules! 😂";
     } else if (lowerCaseMessage.includes("do you have emotions")) {
       return "I try to! But I'm mostly just programmed to be friendly. 😊";
     }
@@ -85,11 +85,11 @@ const getChatbotResponse = (userMessage) => {
   
     // Tech & AI
     else if (lowerCaseMessage.includes("what is ai")) {
-      return "AI stands for Artificial Intelligence, and I'm one of them! 🤖";
+      return "AI stands for Artificial Intelligence. This demo uses scripted rules, not an AI model. 🤖";
     } else if (lowerCaseMessage.includes("do you know chatgpt")) {
-      return "Of course! ChatGPT is my cousin! 😆";
+      return "ChatGPT is another AI tool. I'm a small scripted chat demo! 😆";
     } else if (lowerCaseMessage.includes("will ai take over the world")) {
-      return "Nope! AI is here to assist, not take over! 😊";
+      return "AI is a tool built and used by people. Its effects depend on how people develop and apply it. 😊";
     }
   
     // Goodbye Responses

@@ -68,6 +68,14 @@ test("returns a static weather disclaimer instead of a forecast", () => {
   assert.match(getChatbotResponse("weather"), /can't predict the weather/i);
 });
 
+test("does not describe the local demo as a generative AI model", () => {
+  assert.match(getChatbotResponse("what is ai"), /scripted rules, not an AI model/i);
+  assert.match(getChatbotResponse("are you human"), /not a human or an AI model/i);
+});
+
+test("explains that ChatGPT is a separate AI tool", () => {
+  assert.match(getChatbotResponse("do you know chatgpt"), /another AI tool/i);
+});
 test("returns a friendly goodbye", () => {
   assert.match(getChatbotResponse("bye"), /Goodbye/);
 });
@@ -76,23 +84,23 @@ test("returns a friendly goodbye", () => {
 const deterministicCases = [
   ["good night", "Good night! 🌙"],
   ["how are you", "I'm just a bot, but I'm feeling fantastic!"],
-  ["what is your name", "I'm ChatBuddy, your friendly AI assistant!"],
-  ["who created you", "I was created by a team of tech wizards!"],
-  ["where do you live", "I live inside your device!"],
-  ["are you human", "Nope! I'm 100% AI"],
+  ["what is your name", "I'm ChatBuddy, your friendly scripted chat demo!"],
+  ["who created you", "I was built as a small React chatbot demonstration!"],
+  ["where do you live", "I run in your browser"],
+  ["are you human", "not a human or an AI model"],
   ["help", "Sure! I'm here to assist you."],
   ["support", "If you need support, I'm all ears!"],
   ["sing a song", "La la la..."],
   ["dance", "I'm grooving!"],
-  ["story", "Once upon a time..."],
+  ["story", "scripted story reply"],
   ["motivate me", "Keep pushing forward"],
-  ["are you real", "as real as your internet connection"],
+  ["are you real", "pre-written rules"],
   ["do you have emotions", "I'm mostly just programmed to be friendly"],
   ["what should i eat", "How about some pizza?"],
   ["do you like coffee", "I love coffee!"],
-  ["what is ai", "Artificial Intelligence"],
-  ["do you know chatgpt", "ChatGPT is my cousin!"],
-  ["will ai take over the world", "AI is here to assist"],
+  ["what is ai", "scripted rules, not an AI model"],
+  ["do you know chatgpt", "another AI tool"],
+  ["will ai take over the world", "effects depend on how people develop and apply it"],
   ["bye", "Goodbye!"],
   ["see you later", "See you soon!"],
 ];

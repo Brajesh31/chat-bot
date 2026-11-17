@@ -23,8 +23,9 @@ A lightweight browser-only chat interface built with **React 18** and **Vite 6**
 - 🗣️ Local phrase rules for greetings, personal questions, jokes, facts, help, date/time, and other small topics.
 - 🎲 Random response options for selected rule groups.
 - 🧹 Clear conversation and minimize/expand controls.
-- ♿ Semantic form controls, labelled actions, and live message region.
-- ⚡ Fast local development and a static Vite production build.
+- ♿ Semantic form controls, labelled actions, and a live message region.
+- 📱 Responsive layout and reduced-motion support.
+- ⚡ Fast local development and static Vite production build.
 - 🧪 Automated tests using Node's built-in test runner.
 
 ## 🧭 Capability status
@@ -83,7 +84,7 @@ flowchart TD
  G --> H[React renders chat bubbles]
 ```
 
-The user prompt is processed locally. The response helper does not send messages over the network. See [response matching flow](docs/assets/response-rules-flow.svg).
+The prompt is processed locally. The response helper does not send messages over the network. See [response matching flow](docs/assets/response-rules-flow.svg).
 
 ## 🗂️ Project structure
 
@@ -104,7 +105,7 @@ chat-bot/
 │   ├── templates/               # Reusable engineering templates
 │   ├── testing/                 # Test strategy and quality gates
 │   └── *.md                     # Product and engineering handbook
-├── public/                      # Static assets and app favicon
+├── public/                      # Static assets and branded favicon
 ├── src/
 │   ├── components/
 │   │   ├── ChatForm.jsx
@@ -112,6 +113,7 @@ chat-bot/
 │   │   ├── ChatbotIcon.jsx
 │   │   └── ChatbotResponse.js
 │   ├── App.jsx
+│   ├── chatbot-enhancements.css
 │   ├── App.css
 │   ├── index.css
 │   └── main.jsx
@@ -122,7 +124,7 @@ chat-bot/
 └── vite.config.js
 ```
 
-Explore the [documentation hub](docs/README.md) and [full source structure guide](docs/PROJECT_STRUCTURE.md).
+Explore the [documentation hub](docs/README.md) and [source structure guide](docs/PROJECT_STRUCTURE.md).
 
 ## 🧪 Quality checks
 
@@ -133,7 +135,7 @@ npm test
 npm run build
 ```
 
-GitHub Actions runs these checks on Node.js 20 and 22. The test suite covers local response rules. Browser layout, full React interaction, accessibility and live deployment still require separate manual or browser-level verification.
+GitHub Actions runs these checks on Node.js 20 and 22. The tests cover local response behavior. Browser layout, complete React interaction, accessibility and live deployment still require additional browser-level or manual verification.
 
 ## 🔐 Security and privacy
 

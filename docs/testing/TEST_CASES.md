@@ -1,17 +1,19 @@
 # 🧾 Test Cases
 
-| ID | Scenario | Automated status | Expected |
+| ID | Scenario | Coverage | Expected |
 |---|---|---|---|
 | TC-01 | Uppercase greeting | Automated | Greeting response |
-| TC-02 | Morning phrase | Automated | Morning response |
-| TC-03 | Joke selection | Automated with fixed randomness | First configured joke |
-| TC-04 | Fact selection | Automated with fixed randomness | First configured fact |
-| TC-05 | Unknown prompt | Automated with fixed randomness | First fallback |
-| TC-06 | Weather prompt | Automated | Static no-forecast wording |
-| TC-07 | Goodbye prompt | Automated | Goodbye response |
-| TC-08 | Empty form submission | Manual | No message appended |
-| TC-09 | Enter key submission | Manual | Form submit path |
-| TC-10 | Narrow viewport | Manual | Chat remains usable |
-| TC-11 | Screen-reader announcements | Manual | New messages announced |
+| TC-02 | Standalone hi | Automated | Greeting response |
+| TC-03 | "hi" substring inside history | Automated regression | Not treated as greeting |
+| TC-04 | Morning phrase | Automated | Morning response |
+| TC-05 | Joke selection | Automated with fixed randomness | First configured joke |
+| TC-06 | Fact selection | Automated with fixed randomness | First configured fact |
+| TC-07 | Unknown prompt | Automated with fixed randomness | First fallback |
+| TC-08 | Weather prompt | Automated | Static disclaimer |
+| TC-09 | Goodbye prompt | Automated | Goodbye response |
+| TC-10 | Empty form submit | Manual | No message appended |
+| TC-11 | Enter submission | Manual | Form submit path |
+| TC-12 | Narrow viewport | Manual | Chat remains usable |
+| TC-13 | Screen-reader announcements | Manual | New messages announced |
 
-Update this table when test coverage changes.
+Update this table whenever actual test coverage changes.

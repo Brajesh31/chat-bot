@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import "./chatbot-enhancements.css";
 import ChatbotIcon from "./components/ChatbotIcon";
 import ChatForm from "./components/ChatForm";
 import ChatMessage from "./components/ChatMessage";
@@ -10,7 +11,10 @@ const App = () => {
 
   return (
     <div className="container">
-      <section className={`chatbot-popup${isMinimized ? " minimized" : ""}`} aria-label="Chat with ChatBuddy">
+      <section
+        className={`chatbot-popup${isMinimized ? " minimized" : ""}`}
+        aria-label="Chat with ChatBuddy"
+      >
         <header className="chat-header">
           <div className="header-info">
             <ChatbotIcon />

@@ -1,4 +1,4 @@
-# Error and Empty Input Flow
+# Empty Input and Response Flow
 
 ```mermaid
 flowchart TD
@@ -10,4 +10,4 @@ flowchart TD
  F --> G[Render updated chat]
 ```
 
-The current helper is synchronous. There is no remote provider error branch.
+The current helper is synchronous. There is no remote-provider error branch.

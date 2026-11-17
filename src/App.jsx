@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import "./chatbot-enhancements.css";
 import ChatbotIcon from "./components/ChatbotIcon";
@@ -8,6 +8,18 @@ import ChatMessage from "./components/ChatMessage";
 const App = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [isMinimized, setIsMinimized] = useState(false);
+  const latestMessageRef = useRef(null);
+
+  useEffect(() => {
+    const latestMessage = latestMessageRef.current;
+    if (!latestMessage || typeof latestMessage.scrollIntoView !== "function") return;
+
+    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    latestMessage.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "end",
+    });
+  }, [chatHistory]);
 
   return (
     <div className="container">
@@ -69,6 +81,7 @@ const App = () => {
           {chatHistory.map((chat, index) => (
             <ChatMessage key={`${chat.role}-${index}`} chat={chat} />
           ))}
+          <div ref={latestMessageRef} aria-hidden="true" className="chat-scroll-anchor" />
         </div>
 
         <footer className="chat-footer" hidden={isMinimized}>

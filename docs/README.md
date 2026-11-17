@@ -1,10 +1,13 @@
 # 📚 Documentation Hub
 
-The current project is a browser-only React chat UI using local scripted replies. It is not an LLM-backed service.
+This handbook documents the current browser-only React chat application. It separates implemented behavior from proposed capabilities.
+
+> The chatbot uses local phrase matching. It does not call an LLM, server API, database, or persistence layer.
 
 ## Getting started
 - [Installation](installation.md)
 - [User guide](USER_GUIDE.md)
+- [Input format and validation](INPUT_FORMATS.md)
 - [FAQ](faq.md)
 - [Troubleshooting](troubleshooting.md)
 
@@ -23,7 +26,7 @@ The current project is a browser-only React chat UI using local scripted replies
 - [Dependencies](DEPENDENCIES.md)
 - [Compatibility](COMPATIBILITY.md)
 - [API status](api.md)
-- [Persistence](database.md)
+- [Persistence status](database.md)
 
 ## Quality
 - [Testing strategy](testing/TESTING_STRATEGY.md)
@@ -31,7 +34,6 @@ The current project is a browser-only React chat UI using local scripted replies
 - [Quality gates](testing/QUALITY_GATES.md)
 - [CI](testing/CI.md)
 - [Reproducibility](REPRODUCIBILITY.md)
-- [Error handling](ERROR_HANDLING.md)
 
 ## Security and operations
 - [Threat model](security/THREAT_MODEL.md)

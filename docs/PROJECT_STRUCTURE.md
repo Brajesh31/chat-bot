@@ -1,16 +1,41 @@
 # 🗂️ Project Structure
 
 ```text
-src/
-├── App.jsx                    # Main layout and in-memory history
-├── App.css                    # Chat panel styles
-├── index.css                  # Global styling
-├── main.jsx                   # React entry point
-└── components/
-    ├── ChatForm.jsx            # Prompt form and submit handler
-    ├── ChatMessage.jsx         # Message renderer
-    ├── ChatbotIcon.jsx         # Inline SVG icon
-    └── ChatbotResponse.js      # Local phrase rules
+chat-bot/
+├── .github/
+│   ├── DISCUSSION_TEMPLATE/
+│   ├── ISSUE_TEMPLATE/
+│   ├── workflows/
+│   └── PULL_REQUEST_TEMPLATE.md
+├── docs/
+│   ├── assets/
+│   ├── diagrams/
+│   ├── examples/
+│   ├── operations/
+│   ├── security/
+│   ├── templates/
+│   └── testing/
+├── public/
+│   └── chatbot.svg
+├── scripts/                  # Repository validation utilities (future scripts)
+├── src/
+│   ├── components/
+│   │   ├── ChatForm.jsx
+│   │   ├── ChatMessage.jsx
+│   │   ├── ChatbotIcon.jsx
+│   │   └── ChatbotResponse.js
+│   ├── App.jsx
+│   ├── App.css
+│   ├── chatbot-enhancements.css
+│   ├── index.css
+│   └── main.jsx
+├── tests/
+│   ├── ChatbotResponse.test.js
+│   └── repository-integrity.test.js
+├── index.html
+├── package.json
+├── package-lock.json
+└── vite.config.js
 ```
 
-Root configuration includes npm metadata/lockfile, Vite, ESLint, and HTML entry. `.env.example` is informational and source does not currently read environment variables. Keep rendering, state, and response rules separate. Future remote inference must use a server-side boundary.
+The application is browser-only. It has no backend, database, HTTP API, or persistent chat storage. The automated tests run through Node.js's built-in test runner.

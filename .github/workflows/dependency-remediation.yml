@@ -1,0 +1,45 @@
+name: One-time npm dependency remediation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/dependency-remediation.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  remediate:
+    if: github.event.head_commit.message == 'ci: run one-time dependency remediation'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install current lockfile
+        run: npm ci
+      - name: Apply non-breaking security updates
+        run: npm audit fix || echo "Some advisories may not have non-breaking fixes."
+      - name: Review remaining advisories
+        run: npm audit --audit-level=high || true
+      - name: Validate updated dependency tree
+        run: |
+          npm run lint
+          npm test
+          npm run build
+      - name: Commit updated npm metadata
+        run: |
+          git add package.json package-lock.json
+          if git diff --cached --quiet; then
+            echo "No non-breaking dependency updates were available."
+            exit 0
+          fi
+          git config user.name "Brajesh31"
+          git config user.email "brajesh31.dev@gmail.com"
+          git commit -m "chore: remediate npm dependency advisories"
+          git push origin HEAD:main

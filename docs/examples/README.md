@@ -2,4 +2,4 @@
 
 All examples are synthetic.
 - [Sample prompts](sample-prompts.md): prompts for existing response categories.
-- [Response contract](response-contract.json): future illustrative metadata, not loaded by the app.
+- [Response contract](response-contract.json): future illustrative metadata, not loaded by runtime.

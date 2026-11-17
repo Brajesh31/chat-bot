@@ -1,7 +1,7 @@
 {
   "status": "illustrative-only",
   "loaded_by_application": false,
-  "description": "Future rule catalogue example; current implementation uses conditionals.",
+  "description": "Future rule catalogue example; current implementation uses conditional branches.",
   "rule": {
     "id": "greeting-hello",
     "phrases": [

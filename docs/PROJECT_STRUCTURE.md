@@ -13,4 +13,4 @@ src/
     └── ChatbotResponse.js      # Local phrase rules
 ```
 
-Root configuration includes npm metadata/lockfile, Vite, ESLint, and HTML entry. `.env.example` is informational and source does not read environment values. Keep rendering, state, and response rules separate. Future remote inference must use a server-side boundary.
+Root configuration includes npm metadata/lockfile, Vite, ESLint, and HTML entry. `.env.example` is informational and source does not currently read environment variables. Keep rendering, state, and response rules separate. Future remote inference must use a server-side boundary.

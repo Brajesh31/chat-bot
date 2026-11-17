@@ -1,58 +1,67 @@
 # 📚 Documentation Hub
 
-This handbook documents the current browser-only React chat app. It distinguishes working behavior from proposed features.
+The current project is a browser-only React chat UI using local scripted replies. It is not an LLM-backed service.
 
-> The bot uses local phrase matching. It does not call an LLM, server API, database, or persistence layer.
-
-## Start here
-| Audience | Start with |
-|---|---|
-| User | [User guide](USER_GUIDE.md), [Installation](installation.md) |
-| Contributor | [Development](development.md), [Contributing](../CONTRIBUTING.md) |
-| Maintainer | [Architecture](architecture.md), [Testing](testing/TESTING_STRATEGY.md), [Operations](operations/OPERATIONS.md) |
-| Security reviewer | [Threat model](security/THREAT_MODEL.md), [Privacy](security/PRIVACY.md), [Security policy](../SECURITY.md) |
-| Educator | [Learning path](LEARNING_PATH.md), [Educator guide](EDUCATOR_GUIDE.md) |
+## Getting started
+- [Installation](installation.md)
+- [User guide](USER_GUIDE.md)
+- [FAQ](faq.md)
+- [Troubleshooting](troubleshooting.md)
 
 ## Product and UX
-- [User guide](USER_GUIDE.md), [Response rules](RESPONSE_RULES.md)
-- [Product requirements](PRODUCT_REQUIREMENTS.md), [User stories](USER_STORIES.md)
-- [Accessibility](ACCESSIBILITY.md), [FAQ](faq.md)
+- [Response rules](RESPONSE_RULES.md)
+- [Requirements](PRODUCT_REQUIREMENTS.md)
+- [User stories](USER_STORIES.md)
+- [Accessibility](ACCESSIBILITY.md)
+- [Performance](PERFORMANCE.md)
 
 ## Engineering
-- [Architecture](architecture.md), [Project structure](PROJECT_STRUCTURE.md)
-- [Development](development.md), [Configuration](CONFIGURATION.md)
-- [Dependencies](DEPENDENCIES.md), [Compatibility](COMPATIBILITY.md)
-- [API status](api.md), [Persistence status](database.md)
+- [Architecture](architecture.md)
+- [Project structure](PROJECT_STRUCTURE.md)
+- [Development](development.md)
+- [Configuration](CONFIGURATION.md)
+- [Dependencies](DEPENDENCIES.md)
+- [Compatibility](COMPATIBILITY.md)
+- [API status](api.md)
+- [Persistence](database.md)
 
 ## Quality
-- [Testing strategy](testing/TESTING_STRATEGY.md), [Test cases](testing/TEST_CASES.md)
-- [Quality gates](testing/QUALITY_GATES.md), [CI](testing/CI.md)
-- [Performance](PERFORMANCE.md), [Reproducibility](REPRODUCIBILITY.md)
+- [Testing strategy](testing/TESTING_STRATEGY.md)
+- [Test cases](testing/TEST_CASES.md)
+- [Quality gates](testing/QUALITY_GATES.md)
+- [CI](testing/CI.md)
+- [Reproducibility](REPRODUCIBILITY.md)
+- [Error handling](ERROR_HANDLING.md)
 
 ## Security and operations
-- [Threat model](security/THREAT_MODEL.md), [Privacy](security/PRIVACY.md)
+- [Threat model](security/THREAT_MODEL.md)
+- [Privacy](security/PRIVACY.md)
 - [Security checklist](security/SECURITY_CHECKLIST.md)
-- [Operations](operations/OPERATIONS.md), [Monitoring](operations/MONITORING.md)
+- [Operations](operations/OPERATIONS.md)
+- [Monitoring](operations/MONITORING.md)
 - [Incident response](operations/INCIDENT_RESPONSE.md)
-- [Backup and recovery](operations/BACKUP_RECOVERY.md)
-- [Deployment](deployment.md), [Release process](operations/RELEASE_PROCESS.md)
+- [Backup/recovery](operations/BACKUP_RECOVERY.md)
+- [Deployment](deployment.md)
+- [Release process](operations/RELEASE_PROCESS.md)
 
 ## Governance and learning
-- [Governance](GOVERNANCE.md), [Maintenance](MAINTENANCE.md)
-- [Risk register](RISK_REGISTER.md), [Decision log](DECISION_LOG.md)
-- [Glossary](GLOSSARY.md), [Learning path](LEARNING_PATH.md)
-- [Educator guide](EDUCATOR_GUIDE.md), [Support matrix](SUPPORT_MATRIX.md)
-- [Content provenance](CONTENT_LICENSE.md), [Versioning](VERSIONING.md), [Error handling](ERROR_HANDLING.md)
+- [Governance](GOVERNANCE.md)
+- [Maintenance](MAINTENANCE.md)
+- [Risk register](RISK_REGISTER.md)
+- [Decision log](DECISION_LOG.md)
+- [Glossary](GLOSSARY.md)
+- [Learning path](LEARNING_PATH.md)
+- [Educator guide](EDUCATOR_GUIDE.md)
+- [Support matrix](SUPPORT_MATRIX.md)
+- [Content provenance](CONTENT_LICENSE.md)
+- [Versioning](VERSIONING.md)
+- [Roadmap](../ROADMAP.md)
 
-## Resources
-- [Diagrams](diagrams/README.md)
-- [Assets](assets/README.md)
+## Visuals, examples and templates
+- [Diagram index](diagrams/README.md)
+- [Asset index](assets/README.md)
 - [Examples](examples/README.md)
 - [Templates](templates/README.md)
 
-## Rules
-1. Label capabilities as implemented, experimental, or proposed.
-2. Use exact paths and runnable commands.
-3. Use synthetic examples only.
-4. Update this index when adding pages.
-5. Never describe local canned replies as generative AI.
+## Documentation rules
+Clearly label current, proposed, and unsupported capabilities. Use verified paths and commands, synthetic examples, and keep this index current.

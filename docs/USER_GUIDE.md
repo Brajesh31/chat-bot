@@ -1,14 +1,9 @@
 # 💬 User Guide
 
-This app is a chat UI with locally scripted responses, not a generative assistant.
+The current application is a browser chat interface with locally scripted replies. It is not generative AI.
 
-## Run
-Follow [Installation](installation.md), start `npm run dev`, and open the URL Vite prints.
+Run [Installation](installation.md), start `npm run dev`, and open the Vite URL. Type a message and submit with Enter or the send control. The user prompt and selected local answer appear in the conversation. Refreshing the page clears this in-memory state.
 
-## Use
-1. Type a message.
-2. Submit with Enter or the send control.
-3. Read the prompt and locally selected answer.
-4. Refreshing the page clears the in-memory conversation.
+Examples include `hello`, `good morning`, `tell me a joke`, `tell me a fact`, and `what is AI`. Some reply categories use random selection.
 
-Examples: `hello`, `good morning`, `tell me a joke`, `tell me a fact`, and `what is AI`. Some responses are random and phrase order affects matches. No transcript is saved to a project database. The page references Google Fonts; see [Privacy](security/PRIVACY.md).
+No transcript is saved to a project database. The page references Google Fonts, so the browser may make requests to that host. See [Privacy](security/PRIVACY.md).

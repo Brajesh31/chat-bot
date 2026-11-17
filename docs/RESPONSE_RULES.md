@@ -1,15 +1,15 @@
 # 🧩 Local Response Rules
 
-The helper at `src/components/ChatbotResponse.js` lowercases the message, checks ordered substring conditions, and returns a canned string. Some categories use random selection.
+`src/components/ChatbotResponse.js` lowercases the prompt, checks ordered substring conditions, and returns a canned string. Selected branches choose random strings.
 
-Existing categories include greetings, personal questions, jokes, facts, help, time/date, weather, entertainment, food, technology, and goodbyes.
+Current categories include greetings, personal questions, jokes, facts, help/support, time/date, weather, entertainment, food, technology, and goodbyes.
 
 ## Limitations
 - First matching branch wins.
-- Substring checks can match inside unrelated words.
+- Substring checks can match within unrelated words.
 - Random branches are nondeterministic.
-- Time/date use the browser clock.
-- Weather is static text, not a forecast.
+- Time/date use the visitor's browser clock.
+- Weather is a static sentence, not a forecast.
 - No language model or external knowledge source is queried.
 
-When changing rules, add positive, negative, and ambiguous phrase tests. Keep replies as plain text. A structured rule catalogue is only a future proposal.
+When extending rules, add positive, negative, and ambiguous phrase tests. Keep replies as text. A structured rule catalogue is a future proposal, not current functionality.

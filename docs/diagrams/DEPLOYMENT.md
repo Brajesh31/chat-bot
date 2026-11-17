@@ -9,4 +9,4 @@ flowchart LR
  Host --> Browser[Visitor browser]
 ```
 
-No app server or database is part of the current deployment model.
+No application server or database is part of the current model.

@@ -149,7 +149,7 @@ GitHub Actions runs these checks on Node.js 20 and 22. The tests cover local res
 - Keep user-controlled content rendered as text, not raw HTML.
 - Treat prompts as potentially sensitive.
 - The page loads Google Fonts from an external origin.
-- The committed npm lockfile was refreshed, and the post-update npm audit reported zero known vulnerabilities at that point in time.
+- The latest full dependency audit currently fails on the upstream picomatch 4.0.7 ReDoS advisory in Vite's development/build dependency chain. No patched release was listed when checked on 2026-11-18. See [dependency status](docs/DEPENDENCIES.md); do not treat the earlier clean audit as current.
 - Read [SECURITY.md](SECURITY.md), [threat model](docs/security/THREAT_MODEL.md), and [privacy notes](docs/security/PRIVACY.md).
 
 ## 🧭 Roadmap
@@ -174,7 +174,7 @@ Roadmap items are proposals, not current functionality. See [ROADMAP.md](ROADMAP
 | [Response rules](docs/RESPONSE_RULES.md) | Local scripted behavior |
 | [Response catalog](docs/RESPONSE_CATALOG.md) | Trigger categories and behavior |
 | [Development](docs/development.md) | Contributor workflow |
-| [Testing strategy](docs/testing/TESTING_STRATEGY.md) | Automated and manual test scope |
+| [Testing strategy](docs/testing/TESTING_STRATEGY.md) | Automated and manual test scope |\n| [Dependency status](docs/DEPENDENCIES.md) | Current dependency inventory and security advisories |
 | [Browser verification](docs/BROWSER_VERIFICATION.md) | Manual UI and accessibility checks |
 | [Deployment](docs/deployment.md) | Static hosting |
 | [Threat model](docs/security/THREAT_MODEL.md) | Trust boundaries |

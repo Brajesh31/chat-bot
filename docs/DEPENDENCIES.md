@@ -18,9 +18,24 @@ The test runner is built into supported Node.js releases. Vitest, jsdom, and Tes
 5. Review Dependabot pull requests rather than merging blindly.
 6. Run `npm audit --audit-level=high` before releases and resolve actionable advisories.
 7. Do not use `npm audit fix --force` without reviewing breaking changes and rerunning the full quality suite.
+8. Do not invent a patched version or use an unreviewed Git branch to silence an advisory.
 
-## Security audit status
-On 2026-11-17, a non-breaking `npm audit fix` refreshed the committed lockfile. The resulting audit reported **0 known vulnerabilities**. The updated dependency tree was validated with ESLint, the full Node.js test suite, the high-severity audit gate, and the Vite production build. This is a point-in-time audit result, not a guarantee that future advisories cannot appear.
+## Current security audit status
+
+### Known upstream advisory, 2026-11-18
+
+The current lockfile resolves `picomatch@4.0.7` as a development-only transitive dependency through Vite's file-discovery dependency chain (`fdir` and `tinyglobby`). GitHub advisory [GHSA-fc5q-39xc-vjpf](https://github.com/advisories/GHSA-fc5q-39xc-vjpf), also tracked as CVE-2026-112366, identifies versions through 4.0.7 as vulnerable to regular-expression denial of service through certain repeated extglob patterns.
+
+At the time this note was written:
+- The advisory did not list a patched package version.
+- The upstream maintainer repository had an open, not-yet-merged fix proposal at [picomatch PR #238](https://github.com/micromatch/picomatch/pull/238).
+- The dependency is in the build/development toolchain, not the app's production React runtime dependency set.
+- The app does not pass visitor-entered chat text into picomatch or construct glob patterns from user prompts.
+- Nevertheless, the issue remains a build-tool supply-chain risk and is not considered fixed or formally accepted.
+
+The current full-tree `npm audit --audit-level=high` therefore fails. Do not report the dependency tree as vulnerability-free. Keep the audit gate enabled and re-evaluate after an official patched release is available. Do not use a speculative override or unreviewed fork to force a green result.
+
+A previous audit on 2026-11-17 reported zero known vulnerabilities before the advisory was reflected in the repository's audit result. That earlier result was point-in-time only and is superseded by the current finding.
 
 ## Upgrade workflow
 ```bash
@@ -30,8 +45,8 @@ npm update
 npm ci
 npm run lint
 npm test
-npm audit --audit-level=high
 npm run build
+npm audit --audit-level=high
 ```
 
-Keep package metadata and lockfile changes in the same review. Inspect the resolved package versions in `package-lock.json`.
+Keep package metadata and lockfile changes in the same review. Inspect resolved versions in `package-lock.json`. If a remediation requires a major update, review Vite and plugin compatibility and test both supported Node.js CI versions.

@@ -19,3 +19,7 @@
 - The prior commit passed CI on Node.js 20 and 22, with 56 Node-based tests and a production Vite build.
 - The prior dependency audit reported zero known vulnerabilities at the time it ran.
 - The current documentation and stylesheet changes require a fresh CI run before being described as passing.
+
+
+### Security follow-up
+- The latest npm audit identified GHSA-fc5q-39xc-vjpf in transitive picomatch 4.0.7 used by Vite's development/build dependency tree. No patched release was listed by the advisory on 2026-11-18. The high-severity audit gate remains enabled. CI runs the production build before the audit so build evidence is still available when the audit fails.

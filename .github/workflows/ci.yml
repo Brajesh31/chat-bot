@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   quality:
-    name: Lint, test, audit and build
+    name: Lint, test, build and audit
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -29,7 +29,7 @@ jobs:
         run: npm run lint
       - name: Run tests
         run: npm test
-      - name: Audit high-severity vulnerabilities
-        run: npm audit --audit-level=high
       - name: Build
         run: npm run build
+      - name: Audit high-severity vulnerabilities
+        run: npm audit --audit-level=high

@@ -1,5 +1,6 @@
 # 🎨 Documentation Assets
 
-- [chatbot-overview.svg](chatbot-overview.svg): current browser chat input, local phrase rules, in-memory state, and rendering flow.
+- [chatbot-overview.svg](chatbot-overview.svg): browser chat input, local phrase rules, in-memory state, and rendering.
+- [response-rules-flow.svg](response-rules-flow.svg): ordered matching and fallback selection.
 
-Keep diagrams self-contained, accessible, and free of remote references or scripts.
+The diagrams are original explanatory assets. Keep them self-contained, accessible through surrounding alt text, and free of remote scripts or linked resources.

@@ -1,11 +1,23 @@
 # 🧪 Testing Strategy
 
-Verify response helper behavior, form submission, message rendering, and production build without external services.
+The repository uses Node.js' built-in test runner to avoid adding a test framework dependency to this small frontend.
 
-Layers: unit response tests; component tests for empty/valid submissions; integration chat flow; ESLint; Vite build.
+## Current automated coverage
+- Case-insensitive greeting behavior.
+- Fixed greeting response.
+- Deterministic selection from joke and fact lists by controlling randomness.
+- Deterministic fallback selection.
+- Static weather disclaimer.
+- Goodbye response.
 
-Avoid asserting a specific random reply unless randomness is controlled. Test positive, negative, and ambiguous phrases. Render prompts as text. Do not call real model providers in unit tests.
+## Not yet covered automatically
+- React component rendering and keyboard interaction.
+- Browser layout, responsive behavior, and screen-reader behavior.
+- Full end-to-end browser flow.
 
+These need browser-based tests or a manual review. Do not describe the current suite as component or end-to-end coverage.
+
+## Commands
 ```bash
 npm ci
 npm run lint

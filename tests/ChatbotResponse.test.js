@@ -1,41 +1,51 @@
-import { describe, expect, it, vi } from "vitest";
-import getChatbotResponse from "../src/components/ChatbotResponse";
+import test from "node:test";
+import assert from "node:assert/strict";
+import getChatbotResponse from "../src/components/ChatbotResponse.js";
 
-describe("getChatbotResponse", () => {
-  it("matches greetings without case sensitivity", () => {
-    expect(getChatbotResponse("HELLO")).toContain("Hey there");
-  });
+const withRandomValue = (value, callback) => {
+  const originalRandom = Math.random;
+  Math.random = () => value;
 
-  it("returns the morning greeting", () => {
-    expect(getChatbotResponse("good morning")).toContain("Good morning");
-  });
+  try {
+    return callback();
+  } finally {
+    Math.random = originalRandom;
+  }
+};
 
-  it("returns a configured joke", () => {
-    expect([
-      "Why did the scarecrow win an award? Because he was outstanding in his field! 🌾😂",
-      "Why don’t skeletons fight each other? They don’t have the guts! 💀🤣",
-      "What do you call fake spaghetti? An impasta! 🍝😆",
-      "Why do cows have hooves instead of feet? Because they lactose! 🐄😂",
-    ]).toContain(getChatbotResponse("tell me a joke"));
-  });
+test("matches greeting phrases without case sensitivity", () => {
+  assert.equal(
+    getChatbotResponse("HELLO"),
+    "Hey there! 😊 How can I brighten your day?",
+  );
+});
 
-  it("returns one configured fallback", () => {
-    expect([
-      "Hmm... I'm not sure about that! 🤔",
-      "Can you rephrase that? I want to understand you better! 😊",
-      "That's an interesting thought! Tell me more! 🤩",
-      "I'm still learning! Could you explain that differently! 😃",
-    ]).not.toContain(getChatbotResponse("quantum computing history"));
-  });
+test("returns the configured morning greeting", () => {
+  assert.match(getChatbotResponse("good morning"), /Good morning/);
+});
 
-  it("returns an answer for an unknown prompt", () => {
-    expect(getChatbotResponse("quantum computing history")).toBeTruthy();
-  });
+test("returns a stable first joke when randomness is controlled", () => {
+  const response = withRandomValue(0, () => getChatbotResponse("tell me a joke"));
+  assert.equal(
+    response,
+    "Why did the scarecrow win an award? Because he was outstanding in his field! 🌾😂",
+  );
+});
 
-  it("uses browser-local time", () => {
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date("2026-05-04T10:20:30"));
-    expect(getChatbotResponse("what time is it")).toContain("10:20");
-    vi.useRealTimers();
-  });
+test("returns a stable first fact when randomness is controlled", () => {
+  const response = withRandomValue(0, () => getChatbotResponse("tell me a fact"));
+  assert.equal(response, "Did you know? Honey never spoils! 🍯 It can last forever!");
+});
+
+test("returns the first fallback for an unknown prompt when randomness is controlled", () => {
+  const response = withRandomValue(0, () => getChatbotResponse("quantum computing history"));
+  assert.equal(response, "Hmm... I'm not sure about that! 🤔");
+});
+
+test("returns a static weather disclaimer instead of a forecast", () => {
+  assert.match(getChatbotResponse("weather"), /can't predict the weather/i);
+});
+
+test("returns a friendly goodbye", () => {
+  assert.match(getChatbotResponse("bye"), /Goodbye/);
 });

@@ -1,81 +1,178 @@
-# Chat Bot
+# Chat Bot 🤖
 
-A small browser chat interface built with React and Vite. It displays a welcome message, accepts a text prompt, and responds with a locally generated canned answer selected by case-insensitive keyword matching.
+A lightweight browser-only chat interface built with **React 18** and **Vite 6**. It demonstrates chat UI composition, React state, form handling, and locally scripted response selection.
 
-Despite the friendly interface, this project does not call an AI model or remote chatbot service. It has no application server, API, database, account system, or persistent chat history. Messages exist only in the current React page state.
+> [!IMPORTANT]
+> **This is not an LLM-powered chatbot.** It does not call a model API, backend, database, account system, or remote chatbot service. Replies are selected in the browser from hand-written phrase rules in `src/components/ChatbotResponse.js`.
 
-## Features
+<p align="center"><img src="docs/assets/chatbot-overview.svg" alt="Browser chat flow from prompt input to local phrase matching, state and rendered messages" width="100%"></p>
 
-- Chat-style user and bot message bubbles
-- Local responses for greetings, common questions, jokes, facts, help, time/date, weather, and other simple topics
-- Randomized response choices for jokes, facts, and unknown prompts
-- Responsive styling and a bot icon
-- Vite development server with hot-module reload
+<p align="center">
+<a href="https://github.com/Brajesh31/chat-bot/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Brajesh31/chat-bot/actions/workflows/ci.yml/badge.svg"></a>
+<a href="https://github.com/Brajesh31/chat-bot/actions/workflows/codeql.yml"><img alt="CodeQL" src="https://github.com/Brajesh31/chat-bot/actions/workflows/codeql.yml/badge.svg"></a>
+<img alt="React" src="https://img.shields.io/badge/React-18.3-61DAFB?logo=react&logoColor=20232a">
+<img alt="Vite" src="https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white">
+<img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-ESM-F7DF1E?logo=javascript&logoColor=222">
+<img alt="License" src="https://img.shields.io/badge/license-MIT-green.svg">
+</p>
 
-## Requirements
+## ✨ Features
 
-- Node.js and npm
-- A modern browser with JavaScript enabled
+- 💬 Chat-style user and bot message bubbles.
+- 🧩 React state and reusable interface components.
+- 🗣️ Local phrase rules for greetings, personal questions, jokes, facts, help, date/time, and other small topics.
+- 🎲 Random response options for selected rule groups.
+- 🧹 Clear conversation and minimize/expand controls.
+- ♿ Semantic form controls, labelled actions, and live message region.
+- ⚡ Fast local development and a static Vite production build.
+- 🧪 Automated tests using Node's built-in test runner.
 
-No credentials, API key, or backend service is required.
+## 🧭 Capability status
 
-## Quick start
+| Capability | Current status |
+|---|---|
+| React chat interface | ✅ Implemented |
+| Local scripted responses | ✅ Implemented |
+| Clear and minimize controls | ✅ Implemented |
+| Automated response-rule tests | ✅ Implemented |
+| LLM / generative AI | ❌ Not integrated |
+| Backend API | ❌ Not present |
+| Database / transcript persistence | ❌ Not present |
+| Authentication / user accounts | ❌ Not present |
+| Cross-device history | ❌ Not present |
 
-```sh
+## 🚀 Quick start
+
+### Requirements
+- Node.js 20 or later recommended.
+- npm and Git.
+- Modern browser with JavaScript enabled.
+
+### Install and run
+
+```bash
+git clone https://github.com/Brajesh31/chat-bot.git
+cd chat-bot
 npm ci
 npm run dev
 ```
 
-Open the local URL printed by Vite, usually `http://localhost:5173`. Type a message and submit it to see the matching local response. Refreshing the page clears the conversation.
+Open the local URL printed by Vite, usually `http://localhost:5173`.
 
-## Available scripts
+### Available commands
 
 | Command | Purpose |
-| --- | --- |
-| `npm run dev` | Start the Vite development server |
-| `npm run build` | Create a production bundle under `dist/` |
-| `npm run preview` | Serve the production bundle locally after building |
-| `npm run lint` | Run ESLint over the repository |
+|---|---|
+| `npm run dev` | Start Vite development server |
+| `npm run build` | Create static bundle in `dist/` |
+| `npm run preview` | Preview production bundle locally |
+| `npm run lint` | Run ESLint |
+| `npm test` | Run automated response-rule tests |
+| `npm run test:watch` | Re-run tests when files change |
 
-There is no test script or automated test suite in the current root package.
+## 🏗️ How the current app works
 
-## How replies work
-
-`src/components/ChatForm.jsx` trims the submitted text and updates the conversation state with both a user message and the immediate response. `src/components/ChatbotResponse.js` lowercases the prompt, checks for configured phrases, and returns a fixed answer or a random item from a small response list. It does not send the prompt over the network.
-
-## Project layout
-
-```text
-src/
-  App.jsx                    Chat screen and in-memory history
-  main.jsx                   React application entry point
-  components/
-    ChatForm.jsx             Input and local response dispatch
-    ChatMessage.jsx          User/bot message rendering
-    ChatbotIcon.jsx          Inline SVG icon
-    ChatbotResponse.js       Keyword-based response rules
-public/                      Vite public assets
-index.html                   Browser document and font links
-vite.config.js               Vite React plugin configuration
-eslint.config.js             ESLint flat configuration
+```mermaid
+flowchart TD
+ A[Visitor enters prompt] --> B[ChatForm trims text]
+ B --> C{Empty?}
+ C -- Yes --> D[Ignore submission]
+ C -- No --> E[ChatbotResponse phrase checks]
+ E --> F[Choose scripted response]
+ F --> G[Append user + bot messages]
+ G --> H[React renders chat bubbles]
 ```
 
-Read [docs/architecture.md](docs/architecture.md) for component flow, [docs/development.md](docs/development.md) for contributor workflow, and [docs/troubleshooting.md](docs/troubleshooting.md) for known limitations.
+The user prompt is processed locally. The response helper does not send messages over the network. See [response matching flow](docs/assets/response-rules-flow.svg).
 
-## Current limitations
+## 🗂️ Project structure
 
-- Responses are scripted and selected by substring checks; the interface is not connected to an AI model.
-- Conversation history is not saved and is lost on reload.
-- The header's down-arrow button has no click handler yet.
-- The page uses externally hosted Google Fonts; a network request is made by the browser to load those fonts.
-- There are no tests, API routes, server, or database.
+```text
+chat-bot/
+├── .github/
+│   ├── ISSUE_TEMPLATE/          # Bug, feature and question forms
+│   ├── DISCUSSION_TEMPLATE/     # Idea discussion form
+│   ├── workflows/               # CI, CodeQL and manual README workflow
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   └── dependabot.yml
+├── docs/
+│   ├── assets/                  # Original SVG diagrams
+│   ├── diagrams/                # Mermaid architecture and flow diagrams
+│   ├── examples/                # Synthetic prompts and examples
+│   ├── operations/              # Release and incident guidance
+│   ├── security/                # Threat model and privacy
+│   ├── templates/               # Reusable engineering templates
+│   ├── testing/                 # Test strategy and quality gates
+│   └── *.md                     # Product and engineering handbook
+├── public/                      # Static assets and app favicon
+├── src/
+│   ├── components/
+│   │   ├── ChatForm.jsx
+│   │   ├── ChatMessage.jsx
+│   │   ├── ChatbotIcon.jsx
+│   │   └── ChatbotResponse.js
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── tests/                       # Node built-in test suite
+├── index.html
+├── package.json
+├── package-lock.json
+└── vite.config.js
+```
 
-## Contributing and support
+Explore the [documentation hub](docs/README.md) and [full source structure guide](docs/PROJECT_STRUCTURE.md).
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request. Use [SUPPORT.md](SUPPORT.md) for questions and [SECURITY.md](SECURITY.md) for private vulnerability reports. Possible future improvements are listed in [ROADMAP.md](ROADMAP.md).
+## 🧪 Quality checks
 
-## License
+```bash
+npm ci
+npm run lint
+npm test
+npm run build
+```
 
-The MIT grant in [LICENSE](LICENSE) covers the repository handbook and guidance authored by Brajesh Kumar (`@brajesh31`) in this contribution. Existing application code and third-party assets have separate or unconfirmed provenance; this documentation notice does not claim rights to them.
+GitHub Actions runs these checks on Node.js 20 and 22. The test suite covers local response rules. Browser layout, full React interaction, accessibility and live deployment still require separate manual or browser-level verification.
 
-Last updated: 2026-11-17 11:18 UTC
+## 🔐 Security and privacy
+
+- Never commit secrets, local environment files, or real user transcripts.
+- Every `VITE_*` value is exposed in browser assets. Never store model-provider keys there.
+- Keep user-controlled content rendered as text, not raw HTML.
+- Treat prompts as potentially sensitive.
+- The page loads Google Fonts from an external origin.
+- Read [SECURITY.md](SECURITY.md), [threat model](docs/security/THREAT_MODEL.md), and [privacy notes](docs/security/PRIVACY.md).
+
+## 🧭 Roadmap
+
+1. Improve keyboard focus and screen-reader announcements.
+2. Improve deterministic rule matching and input edge-case coverage.
+3. Consider opt-in local transcript storage with reset and retention controls.
+4. Design a server boundary before any model-provider integration.
+5. Define consent, abuse protection, rate limits, and privacy disclosures before remote inference.
+
+Roadmap items are proposals, not current functionality. See [ROADMAP.md](ROADMAP.md).
+
+## 📚 Documentation
+
+| Guide | Purpose |
+|---|---|
+| [Documentation home](docs/README.md) | Full handbook catalogue |
+| [User guide](docs/USER_GUIDE.md) | Current UI behavior |
+| [Architecture](docs/architecture.md) | Component relationships |
+| [Response rules](docs/RESPONSE_RULES.md) | Local scripted behavior |
+| [Development](docs/development.md) | Contributor workflow |
+| [Testing strategy](docs/testing/TESTING_STRATEGY.md) | Automated and manual test scope |
+| [Deployment](docs/deployment.md) | Static hosting |
+| [Threat model](docs/security/THREAT_MODEL.md) | Trust boundaries |
+| [Troubleshooting](docs/troubleshooting.md) | Common issues |
+| [Templates](docs/templates/README.md) | Reusable project templates |
+
+## 🤝 Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md), propose focused changes, add tests for logic changes, and update documentation when behavior or risk changes. Do not include credentials or private prompts in issues.
+
+## 📄 License and attribution
+
+See [LICENSE](LICENSE). The repository handbook and newly authored documentation are attributed to Brajesh Kumar (`@brajesh31`). Pre-existing source code and third-party assets have separate or unconfirmed provenance; this notice does not claim ownership over material with uncertain provenance.

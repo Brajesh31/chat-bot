@@ -1,3 +1,4 @@
+import * as nodeProcess from "node:process";
 import {
   existsSync,
   readFileSync,
@@ -166,11 +167,11 @@ for (const rule of indexRules) {
 
 
 if (errors.length > 0) {
-  process.stderr.write(`[docs:check] Failed with ${errors.length} issue(s):\n`);
-  for (const error of errors) process.stderr.write(`- ${error}\n`);
-  process.exitCode = 1;
+  nodeProcess.default.stderr.write(`[docs:check] Failed with ${errors.length} issue(s):\n`);
+  for (const error of errors) nodeProcess.default.stderr.write(`- ${error}\n`);
+  nodeProcess.default.exitCode = 1;
 } else {
-  process.stdout.write(
+  nodeProcess.default.stdout.write(
     `[docs:check] Passed. ${counts.markdownFiles} Markdown files, ${counts.localMarkdownLinks} local Markdown links, ${counts.htmlReferences} HTML references, ${counts.jsonFiles} JSON examples, ${counts.svgFiles} SVG assets, and ${indexedFiles} indexed directory files checked.\n`,
   );
 }

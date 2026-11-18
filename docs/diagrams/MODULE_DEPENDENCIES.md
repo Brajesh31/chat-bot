@@ -17,7 +17,6 @@ flowchart TD
 
 The graph shows the current static import and composition path. It does not represent a runtime network call. The external Google Fonts stylesheet is configured in index.html rather than imported through the local component graph.
 
-
 ## Responsibilities and direction
 
 | Module | Depends on | Reason |

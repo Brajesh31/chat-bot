@@ -22,7 +22,6 @@ flowchart LR
 
 Model prompt injection, API authorization, and server rate limits are future concerns before such systems exist.
 
-
 ## Current build-tool advisory
 
 The lockfile includes picomatch 4.0.7 through Vite's development dependency tree. GitHub's [GHSA-fc5q-39xc-vjpf advisory](https://github.com/advisories/GHSA-fc5q-39xc-vjpf) reports a ReDoS condition for repeated extglob patterns. The current app's visitor prompts are not passed to picomatch, but the dependency remains part of developer/CI build tooling. The advisory did not list a patched release on 2026-11-18. Keep the audit gate enabled and do not treat the issue as resolved until an official remediation is available and verified.

@@ -20,7 +20,6 @@ flowchart LR
 
 Google Fonts is the only identified external presentation service reference in the current page. The chat prompt and response flow remains local. The API, model provider, and database nodes are explicit absences, not proposed integrations.
 
-
 ## Data-transfer inventory
 
 | Boundary | Data transferred | Current status |

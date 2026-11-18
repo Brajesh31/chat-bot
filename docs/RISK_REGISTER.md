@@ -21,7 +21,6 @@ Assign an owner, review date, and treatment to any risk accepted for release. A 
 
 Credential exposure, malicious source changes, or confirmed sensitive-data disclosure should follow SECURITY.md and incident response. Do not disclose exploit details in a public issue before coordination.
 
-
 ## Active dependency advisory
 
 The current package lock resolves picomatch 4.0.7 in Vite's development/build dependency tree. GitHub advisory [GHSA-fc5q-39xc-vjpf](https://github.com/advisories/GHSA-fc5q-39xc-vjpf) identifies the version as vulnerable. No patched version was listed in the advisory when checked on 2026-11-18. The application does not pass chat prompts to this glob-matching dependency, but that does not remove the build-tool risk. Track remediation in [dependency guidance](DEPENDENCIES.md) and keep the high-severity audit gate enabled.

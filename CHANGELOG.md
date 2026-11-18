@@ -20,7 +20,6 @@
 - The prior dependency audit reported zero known vulnerabilities at the time it ran.
 - The current documentation and stylesheet changes require a fresh CI run before being described as passing.
 
-
 ### Security and maintenance follow-up
 - The latest npm audit identified GHSA-fc5q-39xc-vjpf in transitive picomatch 4.0.7 used by Vite's development/build dependency tree. The proposed Vite 8 Dependabot update was reviewed and still resolves picomatch 4.0.7. The high-severity audit gate remains enabled.
 - Added a dated Dependabot review record and repository presentation guide, including settings that require manual owner action.

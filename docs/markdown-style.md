@@ -50,6 +50,8 @@ The custom Markdown validator checks structural issues such as newline and fence
 
 ## Automated Markdown checks
 
-The repository pins `markdownlint-cli2@0.24.1` in the npm script without adding it to the application dependency graph. The tool is fetched by npx when the command runs; it is not shipped in the production browser bundle. The configuration disables only rules that conflict with the repository's intentionally detailed tables, HTML image embeds, repeated cross-document headings, and mixed code examples. Review any further rule exception before adding it.
+The repository pins `markdownlint-cli2@0.24.1` in the npm script without adding it to the application dependency graph. The tool is fetched by npx when the command runs; it is not shipped in the production browser bundle.
+
+The active lint profile checks heading-level progression, consistent heading syntax, trailing whitespace, hard tabs, repeated blank lines, heading indentation, and final newlines. It disables blank-line spacing rules around headings, lists, fences, and tables because the existing handbook uses compact layouts and table/list blocks in its templates. The structural validator separately checks final newlines, LF line endings, balanced code fences, and recognized Mermaid declarations. Review any further rule exception before adding it.
 
 The structural validator checks final newlines, LF line endings, balanced code fences, and recognized Mermaid diagram declarations. It does not render Mermaid or prove the diagram's logic is correct.

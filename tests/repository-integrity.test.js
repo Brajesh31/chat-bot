@@ -152,7 +152,7 @@ test("the repository completion matrix separates applicable work from outstandin
 
 test("documentation and Markdown structural validators pass", () => {
   for (const script of ["scripts/validate-docs.mjs", "scripts/validate-markdown.mjs"]) {
-    const result = spawnSync(process.execPath, [path.join(root, script)], {
+    const result = spawnSync("node", [path.join(root, script)], {
       cwd: root,
       encoding: "utf8",
     });

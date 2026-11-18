@@ -122,12 +122,55 @@ for (const filePath of walk(assetsDirectory).filter((item) => item.endsWith(".sv
   }
 }
 
+
+// Every maintained documentation directory has an index. Fail if a direct
+// Markdown, JSON example, or SVG asset is present but not linked from it.
+const indexRules = [
+  { index: "docs/README.md", directory: "docs", extensions: [".md"], exclude: ["README.md"] },
+  { index: "docs/assets/README.md", directory: "docs/assets", extensions: [".svg"] },
+  { index: "docs/diagrams/README.md", directory: "docs/diagrams", extensions: [".md"], exclude: ["README.md"] },
+  { index: "docs/examples/README.md", directory: "docs/examples", extensions: [".md", ".json"], exclude: ["README.md"] },
+  { index: "docs/operations/README.md", directory: "docs/operations", extensions: [".md"], exclude: ["README.md"] },
+  { index: "docs/security/README.md", directory: "docs/security", extensions: [".md"], exclude: ["README.md"] },
+  { index: "docs/testing/README.md", directory: "docs/testing", extensions: [".md"], exclude: ["README.md"] },
+  { index: "docs/templates/README.md", directory: "docs/templates", extensions: [".md"], exclude: ["README.md"] },
+];
+
+let indexedFiles = 0;
+for (const rule of indexRules) {
+  const indexPath = path.join(root, rule.index);
+  if (!existsSync(indexPath)) {
+    errors.push(`Missing documentation index: ${rule.index}`);
+    continue;
+  }
+  const indexText = readFileSync(indexPath, "utf8");
+  const linked = new Set();
+  for (const match of indexText.matchAll(/!?\[[^\]]*\]\(([^)\s]+)(?:\s+[^)]*)?\)/g)) {
+    const raw = match[1].split("#")[0].split("?")[0];
+    if (!raw || /^[a-z][a-z\\d+.-]*:/i.test(raw) || raw.startsWith("//")) continue;
+    let decoded = raw;
+    try { decoded = decodeURIComponent(raw); } catch {}
+    linked.add(path.resolve(path.dirname(indexPath), decoded));
+  }
+  const excluded = new Set(rule.exclude ?? []);
+  for (const name of readdirSync(path.join(root, rule.directory))) {
+    if (excluded.has(name)) continue;
+    if (!rule.extensions.some((extension) => name.endsWith(extension))) continue;
+    const target = path.join(root, rule.directory, name);
+    indexedFiles += 1;
+    if (!linked.has(target)) {
+      errors.push(`File missing from ${rule.index}: ${rule.directory}/${name}`);
+    }
+  }
+}
+
+
 if (errors.length > 0) {
   process.stderr.write(`[docs:check] Failed with ${errors.length} issue(s):\n`);
   for (const error of errors) process.stderr.write(`- ${error}\n`);
   process.exitCode = 1;
 } else {
   process.stdout.write(
-    `[docs:check] Passed. ${counts.markdownFiles} Markdown files, ${counts.localMarkdownLinks} local Markdown links, ${counts.htmlReferences} HTML references, ${counts.jsonFiles} JSON examples, and ${counts.svgFiles} SVG assets checked.\n`,
+    `[docs:check] Passed. ${counts.markdownFiles} Markdown files, ${counts.localMarkdownLinks} local Markdown links, ${counts.htmlReferences} HTML references, ${counts.jsonFiles} JSON examples, ${counts.svgFiles} SVG assets, and ${indexedFiles} indexed directory files checked.\n`,
   );
 }

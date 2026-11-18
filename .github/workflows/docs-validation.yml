@@ -33,5 +33,9 @@ jobs:
         with:
           node-version: 26
           package-manager-cache: false
-      - name: Validate Markdown, links, JSON examples and SVG assets
+      - name: Validate Markdown, links, indexes, JSON examples and SVG assets
         run: npm run docs:check
+      - name: Validate Markdown structure and Mermaid fences
+        run: node scripts/validate-markdown.mjs
+      - name: Lint Markdown style
+        run: npm run markdown:check

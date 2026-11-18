@@ -18,6 +18,7 @@ A lightweight browser-only chat interface built with **React 18** and **Vite 6**
 <a href="https://github.com/Brajesh31/chat-bot/actions/workflows/codeql.yml"><img alt="CodeQL" src="https://github.com/Brajesh31/chat-bot/actions/workflows/codeql.yml/badge.svg"></a>
 <a href="https://github.com/Brajesh31/chat-bot/actions/workflows/docs-validation.yml"><img alt="Documentation validation" src="https://github.com/Brajesh31/chat-bot/actions/workflows/docs-validation.yml/badge.svg"></a>
 <a href="https://github.com/Brajesh31/chat-bot/actions/workflows/gitleaks.yml"><img alt="Secret scanning" src="https://github.com/Brajesh31/chat-bot/actions/workflows/gitleaks.yml/badge.svg"></a>
+<a href="https://github.com/Brajesh31/chat-bot/actions/workflows/markdown-lint.yml"><img alt="Markdown lint" src="https://github.com/Brajesh31/chat-bot/actions/workflows/markdown-lint.yml/badge.svg"></a>
 <a href="https://github.com/Brajesh31/chat-bot/issues"><img alt="Open issues" src="https://img.shields.io/github/issues/Brajesh31/chat-bot"></a>
 <a href="https://github.com/Brajesh31/chat-bot/pulls"><img alt="Open pull requests" src="https://img.shields.io/github/issues-pr/Brajesh31/chat-bot"></a>
 <img alt="Last commit" src="https://img.shields.io/github/last-commit/Brajesh31/chat-bot">
@@ -27,6 +28,22 @@ A lightweight browser-only chat interface built with **React 18** and **Vite 6**
 <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-ESM-F7DF1E?logo=javascript&logoColor=222">
 <a href="docs/CONTENT_LICENSE.md"><img alt="Documentation license scope" src="https://img.shields.io/badge/docs%20license-MIT-green.svg"></a>
 </p>
+
+## 🧭 Contents
+
+- [Features](#features)
+- [Capability status](#capability-status)
+- [Quick start](#quick-start)
+- [How the current app works](#how-the-current-app-works)
+- [Project structure](#project-structure)
+- [Quality checks](#quality-checks)
+- [Security and privacy](#security-and-privacy)
+- [Roadmap](#roadmap)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [Acknowledgements](#acknowledgements)
+- [References](#references)
+- [License and attribution](#license-and-attribution)
 
 ## ✨ Features
 
@@ -39,7 +56,8 @@ A lightweight browser-only chat interface built with **React 18** and **Vite 6**
 - 📱 Responsive layout and reduced-motion support.
 - ⚡ Fast local development and static Vite production build.
 - 🧪 Automated response and repository-integrity tests using Node's built-in test runner.
-- 🧰 Automated documentation-link, JSON-example, and SVG-asset validation.
+- 🧰 Automated documentation-link, index coverage, JSON-example, and SVG-asset validation.
+- 📝 Pinned Markdown linting with markdownlint-cli2.
 
 ## 🧭 Capability status
 
@@ -50,6 +68,7 @@ A lightweight browser-only chat interface built with **React 18** and **Vite 6**
 | Clear and minimize controls | ✅ Implemented |
 | Automated response-rule tests | ✅ Implemented |
 | Documentation validation | ✅ Implemented |
+| Markdown lint | ✅ Configured |
 | CodeQL analysis | ✅ Configured |
 | Secret scanning | ✅ Configured |
 | LLM / generative AI | ❌ Not integrated |
@@ -88,7 +107,8 @@ Open the local URL printed by Vite, usually http://localhost:5173. If you do not
 | npm run lint | Run ESLint |
 | npm test | Run automated Node tests |
 | npm run test:watch | Re-run tests when files change |
-| npm run docs:check | Validate local docs links, examples, and SVG assets |
+| npm run docs:check | Validate local docs links, directory indexes, examples, and SVG assets |
+| npm run markdown:check | Lint all Markdown files with the pinned markdownlint-cli2 version |
 | npm audit --audit-level=high | Fail when high-severity dependency advisories are present |
 
 ## 🏗️ How the current app works
@@ -113,13 +133,13 @@ chat-bot/
 ├── .github/
 │   ├── ISSUE_TEMPLATE/           # Bug, feature, docs, accessibility, security and performance forms
 │   ├── DISCUSSION_TEMPLATE/      # Idea template (GitHub Discussions is not enabled)
-│   ├── workflows/                # CI, CodeQL, docs, dependency, secret-scan and manual README jobs
+│   ├── workflows/                # CI, CodeQL, docs, Markdown lint, dependency, secret-scan and README jobs
 │   ├── dependency-review-config.yml
 │   ├── PULL_REQUEST_TEMPLATE.md
 │   └── dependabot.yml
 ├── docs/
-│   ├── assets/                   # Original SVG logo, banner, diagrams and wireframes
-│   ├── diagrams/                 # Mermaid architecture, lifecycle, state and workflow diagrams
+│   ├── assets/                   # Logo, banner, social-preview source, diagrams and wireframes
+│   ├── diagrams/                 # Mermaid DFD, UML, lifecycle, response and architecture diagrams
 │   ├── examples/                 # Synthetic prompts and response fixtures
 │   ├── operations/               # Release, monitoring, recovery and incident guidance
 │   ├── security/                 # Threat model, privacy and security checks
@@ -141,14 +161,17 @@ chat-bot/
 │   └── main.jsx
 ├── tests/                        # Node built-in test suite
 ├── .gitleaks.toml
+├── .markdownlint-cli2.jsonc
 ├── .nvmrc
 ├── index.html
 ├── package.json
 ├── package-lock.json
+├── MAINTAINERS.md
+├── GOVERNANCE.md
 └── vite.config.js
 ```
 
-See the [full project structure guide](docs/PROJECT_STRUCTURE.md) and [repository completion matrix](docs/REPOSITORY_COMPLETION.md).
+See the [full project structure guide](docs/PROJECT_STRUCTURE.md), [repository completion matrix](docs/REPOSITORY_COMPLETION.md), and [repository presentation guide](docs/repository-presentation.md).
 
 ## 🧪 Quality checks
 
@@ -157,11 +180,13 @@ npm ci
 npm run lint
 npm test
 npm run docs:check
+node scripts/validate-markdown.mjs
+npm run markdown:check
 npm run build
 npm audit --audit-level=high
 ```
 
-GitHub Actions runs the quality matrix on Node.js 22, 24, and 26. CodeQL, Gitleaks, documentation validation, and dependency review run in their own workflows. The tests cover local response behavior and repository integrity. Browser interaction, accessibility, and live deployment still require manual verification.
+GitHub Actions runs the quality matrix on Node.js 22, 24, and 26. CodeQL, Gitleaks, documentation validation, Markdown lint, and dependency review run in dedicated workflows. The tests cover local response behavior and repository integrity. Browser interaction, accessibility, and live deployment still require manual verification.
 
 ## 🔐 Security and privacy
 
@@ -202,6 +227,18 @@ Start at the [documentation hub](docs/README.md). Important guides include:
 ## 🤝 Contributing
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md), propose focused changes, add tests for logic changes, and update documentation when behavior or risk changes. Do not include credentials or private prompts in issues.
+
+## 🙏 Acknowledgements
+
+ChatBuddy is built with React, React DOM, Vite, Node.js, ESLint, npm, and GitHub Actions. See the [acknowledgements page](docs/acknowledgements.md) for context and attribution boundaries.
+
+## 📚 References
+
+See the [technical references index](docs/references.md) for primary documentation and the current dependency advisory.
+
+## 🖼️ Social preview source
+
+An original [GitHub social-preview illustration](docs/assets/social-preview.svg) is included as a source asset. GitHub repository social-preview settings are managed separately. This SVG has not been uploaded as a repository setting or exported to a raster image.
 
 ## 📄 License and attribution
 

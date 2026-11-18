@@ -14,7 +14,7 @@
 - Review Dependabot pull requests and upstream release notes.
 - Check compatibility with Node.js 22, 24, and 26.
 - Keep package.json and package-lock.json synchronized.
-- Run npm ci, lint, tests, docs validation, npm audit, and the production build.
+- Run npm ci, lint, tests, docs validation, Markdown structural validation, markdownlint, npm audit, and the production build.
 - Review Gitleaks and dependency-review workflow results.
 - Record why an override or advisory exception is necessary and when it will be reviewed.
 

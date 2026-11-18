@@ -128,6 +128,7 @@ This handbook documents the current browser-only React application. It separates
 - [CI workflow](testing/CI.md)
 - [Reproducibility](REPRODUCIBILITY.md)
 - [Documentation validation](../scripts/README.md)
+- [Markdown lint configuration](../.markdownlint-cli2.jsonc)
 
 ## 🔄 Deployment and operations
 - [Deployment](deployment.md)
@@ -170,6 +171,19 @@ This handbook documents the current browser-only React application. It separates
 - [Audit logging status](audit-logging.md)
 - [Content provenance](CONTENT_LICENSE.md)
 
+## 📚 References and project governance
+- [Acknowledgements](acknowledgements.md)
+- [Technical references](references.md)
+- [Future scope](future-scope.md)
+- [Internationalization status](internationalization.md)
+- [Branching strategy](branching-strategy.md)
+- [Conversation flow](conversation-flow.md)
+- [Markdown style and linting](markdown-style.md)
+- [Repository presentation and About settings](repository-presentation.md)
+- [Dependabot review record, 2026-11-18](DEPENDABOT_REVIEW_2026-11-18.md)
+- [Root governance policy](../GOVERNANCE.md)
+- [Maintainers](../MAINTAINERS.md)
+
 ## 🖼️ Visuals, templates and governance
 - [Diagram index](diagrams/README.md)
 - [Asset index](assets/README.md)
@@ -178,6 +192,9 @@ This handbook documents the current browser-only React application. It separates
 - [Repository completion matrix](REPOSITORY_COMPLETION.md)
 - [Change impact matrix](CHANGE_IMPACT_MATRIX.md)
 - [Governance](GOVERNANCE.md)
+- [Root governance policy](../GOVERNANCE.md)
+- [Maintainers](../MAINTAINERS.md)
+- [Branching and commits](branching-strategy.md)
 - [Educator guide](EDUCATOR_GUIDE.md)
 - [Learning path](LEARNING_PATH.md)
 - [Support matrix](SUPPORT_MATRIX.md)

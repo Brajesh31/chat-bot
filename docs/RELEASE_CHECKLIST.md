@@ -8,6 +8,9 @@ This short entry point links to the detailed reusable release process and checkl
 - [ ] Clean install completed with npm ci.
 - [ ] ESLint passes.
 - [ ] Automated Node.js test suite passes.
+- [ ] Documentation links, directory indexes, JSON examples, and SVG assets validate.
+- [ ] Markdown structure and Mermaid declarations validate.
+- [ ] Markdown lint passes.
 - [ ] High-severity dependency audit reviewed.
 - [ ] Vite production build succeeds.
 - [ ] CI is green for the exact commit.

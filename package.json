@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "node --test",
     "test:watch": "node --test --watch",
-    "docs:check": "node scripts/validate-docs.mjs"
+    "docs:check": "node scripts/validate-docs.mjs",
+    "markdown:check": "npx --yes markdownlint-cli2@0.24.1 \"**/*.md\""
   },
   "dependencies": {
     "react": "^18.3.1",

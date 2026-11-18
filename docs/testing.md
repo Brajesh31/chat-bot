@@ -20,8 +20,10 @@ npm audit --audit-level=high
 - Rule precedence and negative near-match behavior.
 - Browser-local date/time output contract.
 - Package manifest and lockfile alignment.
-- Local Markdown link resolution.
+- Local Markdown link and directory-index coverage.
+- Markdown structure, fenced-code and Mermaid declaration checks.
 - SVG metadata and app stylesheet integrity.
+- Markdown style linting through the pinned markdownlint-cli2 tool.
 - Documentation and repository assertions.
 
 ## What remains manual or absent

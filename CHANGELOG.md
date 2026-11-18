@@ -21,5 +21,9 @@
 - The current documentation and stylesheet changes require a fresh CI run before being described as passing.
 
 
-### Security follow-up
-- The latest npm audit identified GHSA-fc5q-39xc-vjpf in transitive picomatch 4.0.7 used by Vite's development/build dependency tree. No patched release was listed by the advisory on 2026-11-18. The high-severity audit gate remains enabled. CI runs the production build before the audit so build evidence is still available when the audit fails.
+### Security and maintenance follow-up
+- The latest npm audit identified GHSA-fc5q-39xc-vjpf in transitive picomatch 4.0.7 used by Vite's development/build dependency tree. The proposed Vite 8 Dependabot update was reviewed and still resolves picomatch 4.0.7. The high-severity audit gate remains enabled.
+- Added a dated Dependabot review record and repository presentation guide, including settings that require manual owner action.
+- Added DFD Level 2 and UML sequence diagrams, acknowledgements, primary technical references, internationalization status, and future-scope guidance.
+- Added an original 1280×640 social-preview SVG source illustration. It is not a real application screenshot and has not been uploaded to GitHub's repository settings.
+- Added pinned Markdown linting and structural code-fence/Mermaid validation, with directory-index coverage checks in the documentation validator.

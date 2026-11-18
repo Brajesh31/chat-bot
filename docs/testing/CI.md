@@ -2,9 +2,9 @@
 
 ## Workflow behavior
 
-The CI workflow installs the exact dependency tree with npm ci, runs ESLint, executes the Node.js built-in test suite, validates Markdown/JSON/SVG documentation assets, builds the static application using Vite, and checks high-severity dependency advisories with npm audit. The configured Node.js matrix covers versions 22, 24, and 26.
+The CI workflow installs the exact dependency tree with npm ci, runs ESLint, executes the Node.js built-in test suite, validates Markdown links and directory indexes, checks Markdown structure and Mermaid fences, runs pinned markdownlint-cli2 style checks, builds the static application using Vite, and checks high-severity dependency advisories with npm audit. The configured Node.js matrix covers versions 22, 24, and 26.
 
-Additional workflows run CodeQL JavaScript analysis, Gitleaks secret scanning, documentation-only validation, and dependency review for relevant pull requests.
+Additional workflows run CodeQL JavaScript analysis, Gitleaks secret scanning, documentation and Markdown validation, and dependency review for relevant pull requests.
 
 ## What a green run means
 

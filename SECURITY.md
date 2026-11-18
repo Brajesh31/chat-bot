@@ -2,7 +2,9 @@
 
 ## Supported versions
 
-No release or support matrix is published. Reports should identify the affected commit or current default branch. This repository is a client-side prototype and has not received a security audit.
+No tagged application release or long-term support commitment is currently published. The development and verification matrix checks Node.js 22, 24, and 26; the preferred local version is Node.js 26. Reports should identify the affected commit or current default branch. This repository is a client-side prototype and has not received a full application security audit.
+
+The dependency tree currently contains the high-severity picomatch 4.0.7 advisory described in [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md). The audit gate remains enabled until a verified upstream remediation is available.
 
 ## Reporting a vulnerability
 

@@ -50,6 +50,8 @@ Run the applicable checks before submitting:
 npm run lint
 npm test
 npm run docs:check
+node scripts/validate-markdown.mjs
+npm run markdown:check
 npm run build
 npm audit --audit-level=high
 ```

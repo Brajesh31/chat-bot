@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync, existsSync } from "node:fs";
+import { spawnSync } from "node:child_process";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
@@ -54,6 +55,8 @@ test("package.json and package-lock.json root dependencies stay aligned", () => 
 test("the documentation validator is available through npm scripts", () => {
   const packageJson = readJson("package.json");
   assert.equal(packageJson.scripts["docs:check"], "node scripts/validate-docs.mjs");
+  assert.equal(packageJson.scripts["markdown:check"], 'npx --yes markdownlint-cli2@0.24.1 "**/*.md"');
+  assert.ok(existsSync(path.join(root, "scripts", "validate-markdown.mjs")));
   assert.ok(existsSync(path.join(root, "scripts", "validate-docs.mjs")));
   assert.ok(existsSync(path.join(root, "scripts", "README.md")));
 });
@@ -72,7 +75,9 @@ test("security and documentation workflows are present", () => {
     ".github/workflows/docs-validation.yml",
     ".github/workflows/dependency-review.yml",
     ".github/workflows/gitleaks.yml",
+    ".github/workflows/markdown-lint.yml",
     ".github/dependency-review-config.yml",
+    ".markdownlint-cli2.jsonc",
     ".gitleaks.toml",
   ]) {
     assert.ok(existsSync(path.join(root, relativePath)), `missing ${relativePath}`);
@@ -143,6 +148,16 @@ test("the repository completion matrix separates applicable work from outstandin
   const matrix = readText("docs/REPOSITORY_COMPLETION.md");
   assert.match(matrix, /Not applicable/i);
   assert.match(matrix, /Remaining manual verification/i);
+});
+
+test("documentation and Markdown structural validators pass", () => {
+  for (const script of ["scripts/validate-docs.mjs", "scripts/validate-markdown.mjs"]) {
+    const result = spawnSync(process.execPath, [path.join(root, script)], {
+      cwd: root,
+      encoding: "utf8",
+    });
+    assert.equal(result.status, 0, `${script} failed:\\n${result.stdout}\\n${result.stderr}`);
+  }
 });
 
 test("the test handbook describes the Node.js built-in test runner", () => {

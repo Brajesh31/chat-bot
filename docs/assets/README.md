@@ -6,6 +6,7 @@ All illustrations in this directory are repository-authored SVG diagrams or wire
 |---|---|---|
 | [Project logo](logo.svg) | Compact ChatBuddy visual mark | Branding guidelines |
 | [Project banner](project-banner.svg) | README hero image and product positioning | Product overview |
+| [Social preview source](social-preview.svg) | 1280×640 GitHub social-preview source illustration | Repository presentation guide |
 | [Chat UI preview](chat-ui-preview.svg) | Illustrative panel, message log, and form | UX specification |
 | [Chatbot overview](chatbot-overview.svg) | Local scripted application flow | System context diagram |
 | [Response rules flow](response-rules-flow.svg) | Ordered phrase matching and fallback path | Response rules guide |

@@ -1,6 +1,6 @@
 # 🗂️ Complete Project Structure
 
-The tree below is generated from the repository's tracked file paths on the commit that introduced this guide. It lists existing files, not a proposed layout.
+The tree below is generated from the staged Git tree for this repository update. It lists tracked files in the current snapshot, not a proposed target layout.
 
 ```text
 chat-bot/
@@ -22,6 +22,7 @@ chat-bot/
 │   │   ├── dependency-review.yml
 │   │   ├── docs-validation.yml
 │   │   ├── gitleaks.yml
+│   │   ├── markdown-lint.yml
 │   │   └── update-readme.yml
 │   ├── dependabot.yml
 │   ├── dependency-review-config.yml
@@ -35,18 +36,31 @@ chat-bot/
 │   │   ├── project-banner.svg
 │   │   ├── README.md
 │   │   ├── response-rules-flow.svg
-│   │   └── responsive-layout.svg
+│   │   ├── responsive-layout.svg
+│   │   └── social-preview.svg
 │   ├── diagrams/
 │   │   ├── CHAT_UI_STATES.md
 │   │   ├── COMPONENTS.md
 │   │   ├── DEPLOYMENT.md
+│   │   ├── DFD_LEVEL_0.md
+│   │   ├── DFD_LEVEL_1.md
+│   │   ├── DFD_LEVEL_2.md
 │   │   ├── ERROR_FLOW.md
 │   │   ├── FUTURE_AI_BOUNDARY.md
 │   │   ├── INCIDENT_RESPONSE.md
+│   │   ├── INTEGRATION_BOUNDARY.md
 │   │   ├── MESSAGE_LIFECYCLE.md
+│   │   ├── MODULE_DEPENDENCIES.md
 │   │   ├── README.md
+│   │   ├── RESPONSE_DECISION.md
 │   │   ├── SYSTEM_CONTEXT.md
-│   │   └── TEST_PIPELINE.md
+│   │   ├── TEST_PIPELINE.md
+│   │   ├── UML_ACTIVITY.md
+│   │   ├── UML_CLASS.md
+│   │   ├── UML_COMPONENT.md
+│   │   ├── UML_DEPLOYMENT.md
+│   │   ├── UML_SEQUENCE.md
+│   │   └── UML_USE_CASE.md
 │   ├── examples/
 │   │   ├── prompt-regression-cases.json
 │   │   ├── README.md
@@ -57,9 +71,11 @@ chat-bot/
 │   │   ├── INCIDENT_RESPONSE.md
 │   │   ├── MONITORING.md
 │   │   ├── OPERATIONS.md
+│   │   ├── README.md
 │   │   └── RELEASE_PROCESS.md
 │   ├── security/
 │   │   ├── PRIVACY.md
+│   │   ├── README.md
 │   │   ├── SECURITY_CHECKLIST.md
 │   │   └── THREAT_MODEL.md
 │   ├── templates/
@@ -119,6 +135,7 @@ chat-bot/
 │   ├── testing/
 │   │   ├── CI.md
 │   │   ├── QUALITY_GATES.md
+│   │   ├── README.md
 │   │   ├── TEST_CASES.md
 │   │   └── TESTING_STRATEGY.md
 │   ├── accessibility-guidelines.md
@@ -126,6 +143,7 @@ chat-bot/
 │   ├── ACCESSIBILITY.md
 │   ├── accessible-components.md
 │   ├── accessible-forms.md
+│   ├── acknowledgements.md
 │   ├── animation-guidelines.md
 │   ├── api-reference.md
 │   ├── api.md
@@ -133,6 +151,7 @@ chat-bot/
 │   ├── architecture-decisions.md
 │   ├── architecture.md
 │   ├── audit-logging.md
+│   ├── branching-strategy.md
 │   ├── branding-guidelines.md
 │   ├── BROWSER_VERIFICATION.md
 │   ├── bug-reporting.md
@@ -151,6 +170,7 @@ chat-bot/
 │   ├── consent-management.md
 │   ├── CONTENT_LICENSE.md
 │   ├── contributor-guide.md
+│   ├── conversation-flow.md
 │   ├── cookie-policy.md
 │   ├── data-deletion.md
 │   ├── data-flow.md
@@ -161,6 +181,7 @@ chat-bot/
 │   ├── database.md
 │   ├── debugging.md
 │   ├── DECISION_LOG.md
+│   ├── DEPENDABOT_REVIEW_2026-11-18.md
 │   ├── DEPENDENCIES.md
 │   ├── dependency-security.md
 │   ├── deployment.md
@@ -181,6 +202,7 @@ chat-bot/
 │   ├── faq.md
 │   ├── features.md
 │   ├── functional-requirements.md
+│   ├── future-scope.md
 │   ├── getting-started.md
 │   ├── github-actions.md
 │   ├── GLOSSARY.md
@@ -191,6 +213,7 @@ chat-bot/
 │   ├── installation.md
 │   ├── integration-testing.md
 │   ├── integrations.md
+│   ├── internationalization.md
 │   ├── keyboard-navigation.md
 │   ├── known-issues.md
 │   ├── LEARNING_PATH.md
@@ -199,6 +222,7 @@ chat-bot/
 │   ├── logging.md
 │   ├── maintainer-guide.md
 │   ├── MAINTENANCE.md
+│   ├── markdown-style.md
 │   ├── migration-guide.md
 │   ├── module-documentation.md
 │   ├── navigation-structure.md
@@ -218,9 +242,11 @@ chat-bot/
 │   ├── project-status.md
 │   ├── qa.md
 │   ├── README.md
+│   ├── references.md
 │   ├── RELEASE_CHECKLIST.md
 │   ├── release-management.md
 │   ├── REPOSITORY_COMPLETION.md
+│   ├── repository-presentation.md
 │   ├── REPRODUCIBILITY.md
 │   ├── RESPONSE_CATALOG.md
 │   ├── RESPONSE_RULES.md
@@ -266,7 +292,8 @@ chat-bot/
 │   └── chatbot.svg
 ├── scripts/
 │   ├── README.md
-│   └── validate-docs.mjs
+│   ├── validate-docs.mjs
+│   └── validate-markdown.mjs
 ├── src/
 │   ├── components/
 │   │   ├── ChatbotIcon.jsx
@@ -286,6 +313,7 @@ chat-bot/
 ├── .gitattributes
 ├── .gitignore
 ├── .gitleaks.toml
+├── .markdownlint-cli2.jsonc
 ├── .nvmrc
 ├── AUTHORS.md
 ├── CHANGELOG.md
@@ -294,8 +322,10 @@ chat-bot/
 ├── CODEOWNERS
 ├── CONTRIBUTING.md
 ├── eslint.config.js
+├── GOVERNANCE.md
 ├── index.html
 ├── LICENSE
+├── MAINTAINERS.md
 ├── package-lock.json
 ├── package.json
 ├── README.md
@@ -305,7 +335,7 @@ chat-bot/
 └── vite.config.js
 ```
 
-## Important source responsibilities
+## 📌 Important source responsibilities
 
 | File | Responsibility |
 |---|---|
@@ -315,36 +345,47 @@ chat-bot/
 | `src/components/ChatForm.jsx` | Input trimming, blank guard, local reply call and state update |
 | `src/components/ChatbotResponse.js` | Ordered local phrase-matching rules and prewritten responses |
 | `src/components/ChatMessage.jsx` | One user or bot-role message view |
-| `src/components/ChatbotIcon.jsx` | Reusable visual bot icon |
+| `src/components/ChatbotIcon.jsx` | Reusable decorative SVG icon |
 | `src/index.css` | Base page, panel, message and form styles |
 | `src/App.css` | Application container and popup sizing |
-| `src/chatbot-enhancements.css` | Header actions, focus, mobile layout and reduced motion |
+| `src/chatbot-enhancements.css` | Header actions, focus, mobile layout and reduced-motion refinements |
 | `vite.config.js` | Vite and React plugin configuration |
 | `eslint.config.js` | ESLint configuration |
 | `package.json` | npm scripts and package declarations |
 | `package-lock.json` | Exact resolved npm dependency tree |
 | `.nvmrc` | Preferred local Node.js version |
-| `scripts/validate-docs.mjs` | Local Markdown, asset-reference, JSON and SVG validation |
+| `scripts/validate-docs.mjs` | Local links, directory-index coverage, JSON examples and SVG validation |
+| `scripts/validate-markdown.mjs` | Markdown fence and Mermaid declaration checks |
 | `tests/ChatbotResponse.test.js` | Response-rule regression suite |
-| `tests/repository-integrity.test.js` | Manifest, links, assets and repository-contract tests |
+| `tests/repository-integrity.test.js` | Manifest, documentation and repository-contract tests |
 
-## Directory responsibilities
+## 📁 Directory responsibilities
 
-- **.github/** contains issue forms, pull-request guidance, Dependabot settings and GitHub Actions workflows.
-- **docs/** contains product, requirements, architecture, UX, development, testing, security, privacy, operations, diagrams, examples, and reusable templates.
-- **docs/assets/** contains original SVG identity and illustration assets. The wireframes are not screenshots.
-- **docs/diagrams/** contains editable Mermaid source and explanatory notes.
+- **.github/** contains issue forms, pull-request guidance, Dependabot configuration, dependency review and workflow automation.
+- **docs/** contains product, requirements, architecture, UX, development, testing, security, privacy, operations, governance, diagrams, examples, and reusable templates.
+- **docs/assets/** contains the project logo, banner, social-preview source, and original SVG wireframes/illustrations. These assets are not browser screenshots.
+- **docs/diagrams/** contains editable Mermaid context, DFD, UML, lifecycle, state, response, dependency, deployment, and integration diagrams.
 - **docs/examples/** contains synthetic prompt fixtures and non-runtime examples.
-- **docs/templates/** contains reusable engineering and review records.
+- **docs/operations/** contains release, monitoring, recovery and incident guidance.
+- **docs/security/** contains threat model, privacy, and security review materials.
+- **docs/templates/** contains reusable engineering, QA, security, privacy, accessibility, release and maintenance templates.
+- **docs/testing/** contains test strategy, quality gates, test cases and CI documentation.
 - **public/** contains static browser-facing assets such as the favicon.
 - **scripts/** contains repository validation utilities.
 - **src/** contains the React UI and stylesheet modules.
 - **tests/** contains Node.js unit and repository-integrity tests.
 
-## Architecture boundaries
+## 🔄 Architecture and runtime boundaries
 
-The runtime is a browser-only React application. There is no backend, database, API server, authentication layer, persistent transcript store, or AI provider. API, database, and integration documentation describes these absences and the review requirements for any future addition.
+The runtime is a browser-only React application. There is no backend, database, HTTP API, authentication layer, persistent transcript store, or AI provider. API, database, integration, and authentication documentation describe those absences and the controls that would be required if the architecture changed.
 
-## Updating this tree
+## 🧪 Validation commands
 
-Regenerate the tree after files or directories are added, moved, or removed. Run `npm run docs:check` and `npm test` after updating it.
+```bash
+npm run docs:check
+node scripts/validate-markdown.mjs
+npm run markdown:check
+npm test
+```
+
+Regenerate the tree whenever tracked files or directories are added, moved, or removed. The repository integrity suite and directory index validator help detect stale documentation references.

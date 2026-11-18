@@ -1,6 +1,25 @@
 # 📋 Repository Enhancement Completion Matrix
 
-This file maps the supplied master GitHub repository checklist to the actual ChatBuddy project. It distinguishes implemented capability, documentation coverage, automation, genuine non-applicability, and outstanding manual evidence. The audited staged snapshot contains **282 tracked files**, including **228 files under docs/**, **53 reusable templates**, **10 diagram documents**, **7 original documentation SVGs**, **6 GitHub Actions workflows**, and **8 issue-template files.
+This file maps the supplied master GitHub repository checklist to the actual ChatBuddy project. It distinguishes implemented capability, documentation coverage, automation, genuine non-applicability, and outstanding manual evidence.
+
+## Audited repository snapshot
+
+The staged repository tree used for this update contains:
+
+| Measure | Count |
+|---|---:|
+| Total tracked files | 312 |
+| Markdown files across the repository | 255 |
+| Files under `docs/` | 253 |
+| Reusable template files (excluding their README index) | 52 |
+| Diagram documents (excluding their README index) | 21 |
+| Original documentation SVG assets | 8 |
+| GitHub Actions workflows | 7 |
+| Issue form / configuration files | 8 |
+| Markdown documentation files under 700 bytes | 2 |
+
+Counts are derived from tracked file paths and blob sizes, not estimates. A directory index is not counted as a reusable template or a diagram document.
+ The audited staged snapshot contains **282 tracked files**, including **228 files under docs/**, **53 reusable templates**, **10 diagram documents**, **7 original documentation SVGs**, **6 GitHub Actions workflows**, and **8 issue-template files.
 
 ## 1. Main repository files
 
@@ -20,6 +39,9 @@ This file maps the supplied master GitHub repository checklist to the actual Cha
 | CODEOWNERS | Present | CODEOWNERS |
 | .gitignore / editorconfig / gitattributes | Present | Root configuration |
 | .env.example | Present | Explains that no runtime environment values are required |
+| Root governance policy | Present | GOVERNANCE.md |
+| Maintainer routing and responsibilities | Present | MAINTAINERS.md and CODEOWNERS |
+| Markdown style configuration | Present | .markdownlint-cli2.jsonc |
 | Node version file | Present | .nvmrc selects Node 26 |
 
 ## 2. Product and project documentation
@@ -55,7 +77,7 @@ Security overview, architecture, best practices, secrets, data protection, vulne
 
 ## 8. Testing and quality
 
-Unit tests and repository integrity checks are automated. Documentation validation runs locally and in GitHub Actions. Integration, browser E2E, visual regression, performance benchmarks, and formal accessibility audit are documented as absent or manual.
+Unit tests and repository integrity checks are automated. Documentation link/index and asset validation, Markdown structural validation, and pinned markdownlint-cli2 style checks run locally and in GitHub Actions. Integration, browser E2E, visual regression, performance benchmarks, and formal accessibility audit are documented as absent or manual.
 
 ## 9. Deployment and operations
 
@@ -72,9 +94,10 @@ Known issues, technical debt, deprecation, migration, upgrade, architecture deci
 ## 12. Visual assets and diagrams
 
 - Original SVG logo and project banner are included.
-- Architecture, message flow, error flow, deployment, CI, UI state, incident response, and future boundary diagrams are included.
-- UI state and responsive layouts are illustrations/wireframes.
-- Real application screenshots are not fabricated. Capture them from a verified browser build before describing them as screenshots.
+- Architecture, message flow, error flow, deployment, CI, UI state, incident response, DFD Level 0/1/2, UML use-case/class/activity/component/deployment/sequence, module-dependency, integration-boundary, response-decision, and future boundary diagrams are included.
+- UI state, responsive layouts, logo, banner, and social preview are original SVG illustrations.
+- Real application screenshots are not fabricated. The repository contains a social-preview source graphic, but its upload to GitHub repository settings is a manual owner action.
+- Data charts and analytics dashboards are not applicable because the current project has no analytical dataset or dashboard. Capture them from a verified browser build before describing them as screenshots.
 
 ## 13. Templates
 
@@ -82,9 +105,13 @@ The templates directory covers ADRs, architecture, API/schema proposals, feature
 
 ## 14. GitHub automation
 
-CI, CodeQL, Dependabot, documentation validation, dependency review, Gitleaks secret scanning, issue forms, private security reporting contact link, PR template, and discussion template are included. GitHub Discussions is disabled in repository settings, so discussion templates cannot be activated from repository files alone.
+CI, CodeQL, Dependabot, documentation validation, Markdown lint, dependency review, Gitleaks secret scanning, issue forms, private security reporting contact link, PR template, and discussion template are included. GitHub Discussions is disabled in repository settings, so discussion templates cannot be activated from repository files alone.
 
-## 15. Remaining manual verification
+## 15. Source-code boundary
+
+The current enhancement pass adds documentation, templates, diagrams, original visual assets, repository validation, and GitHub automation. It does not change the application's React source, response rules, or runtime behavior.
+
+## 16. Remaining manual verification
 
 - [ ] Complete keyboard-only browser pass.
 - [ ] Complete screen-reader/browser review.
@@ -92,7 +119,15 @@ CI, CodeQL, Dependabot, documentation validation, dependency review, Gitleaks se
 - [ ] Run real browser responsive and zoom checks.
 - [ ] Capture real UI screenshots from a verified local or deployed browser session.
 - [ ] Verify a production deployment if one is configured.
+- [ ] Verify that the GitHub social-preview asset has been exported and uploaded, if desired.
+- [ ] Verify the About description and topics are set in repository settings.
+- [ ] Verify branch protection and required status checks in repository settings.
 - [ ] Recheck the picomatch advisory and update to an official fix when available.
+- [ ] Configure GitHub About description and repository topics using the proposal in repository-presentation.md.
+- [ ] Upload an approved raster export of the social preview from social-preview.svg in repository Settings.
+- [ ] Decide whether to enable GitHub Discussions.
+- [ ] Verify branch protection and required status checks in repository settings. The available integration could not read this setting.
+- [ ] Review open Dependabot PRs against the current branch and CI matrix. See the dated [Dependabot review record](DEPENDABOT_REVIEW_2026-11-18.md).
 
 ## Completion rule
 

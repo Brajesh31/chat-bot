@@ -1,5 +1,5 @@
 import { readFileSync, readdirSync } from "node:fs";
-import process from "node:process";
+import * as nodeProcess from "node:process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -90,11 +90,11 @@ for (const filePath of walk(root).filter((item) => item.endsWith(".md"))) {
 }
 
 if (errors.length) {
-  process.stderr.write(`[markdown:structure] Failed with ${errors.length} issue(s):\n`);
-  for (const error of errors) process.stderr.write(`- ${error}\n`);
-  process.exitCode = 1;
+  nodeProcess.default.stderr.write(`[markdown:structure] Failed with ${errors.length} issue(s):\n`);
+  for (const error of errors) nodeProcess.default.stderr.write(`- ${error}\n`);
+  nodeProcess.default.exitCode = 1;
 } else {
-  process.stdout.write(
+  nodeProcess.default.stdout.write(
     `[markdown:structure] Passed. ${markdownFiles} Markdown files, ${fencedBlocks} fenced blocks, and ${mermaidBlocks} Mermaid diagrams checked.\n`,
   );
 }
